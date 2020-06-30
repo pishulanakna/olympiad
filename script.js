@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded",() => {
   loadBlocksLocal();
 
   document.querySelector("#start").addEventListener("click",getCode);
+  document.querySelector("#reset").addEventListener("click",gameHerro.reset.bind(gameHerro));
 
   //Сохраняем скрипт пользователя каждые 2 секунды
   setInterval(saveBlocksLocal,2000);
