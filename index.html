@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="google-blockly/blockly_compressed.js"></script>
+  <script src="google-blockly/blocks_compressed.js"></script>
+  <script src="google-blockly/javascript_compressed.js"></script>
+  <script src="itgenio-blocks/blocks.js"></script>
+  <script src="itgenio-blocks/js-generators.js"></script>
+  <script src="google-blockly/msg/js/ru.js"></script>
+</head>
+<body>
+
+  <div class="container">
+  <!--Это див, в котором будет панель инструментов-->
+    <div id="blocklyDiv"></div>
+
+    <div id="showGame">
+      <div id="herro"></div>
+    </div>
+  </div>
+  <button id="start">Старт</button>
+  <button id="reset">Вернуть персонажа</button>
+
+  <!--Создаём панель инструментов-->
+  <xml id="toolbox" style="display: none">
+    <block type="go_left"></block>
+    <block type="go_right"></block>
+    <block type="go_up"></block>
+    <block type="go_down"></block>
+  </xml>
+
+  <script src="script.js"></script>
+</body>
+</html>

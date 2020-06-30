@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+#blocklyDiv {
+  height: 480px; 
+  width: 600px;
+}
+
+#showGame {
+  position: relative;
+  min-width: 600px;
+  border: 1px solid gray;
+}
+#herro {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: darkgreen;
+}
+
+#start {
+  padding: 10px 20px;
+}
+
+#reset {
+  padding: 10px 20px;
+}
