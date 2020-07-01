@@ -2,10 +2,25 @@
 
 //Описываем класс для нашего персонажа
 class Herro {
+
   constructor() {
-    this.x = 3.5;
-    this.y = 12;
-    this.delta = 30;  //шаг персонажа в пикселях
+  	// Наша карта 1-стена, 0-дорога
+  	this.map=[ 
+  	[1,1,1,1,1,1,1,1,1,1,1],
+  	[1,1,1,1,1,1,1,1,1,1,1],
+  	[1,1,1,1,1,1,1,1,1,1,1],
+  	[1,1,1,1,0,0,0,0,0,0,1],
+  	[1,1,1,1,0,1,1,1,1,1,1],
+  	[1,1,1,1,0,1,1,1,1,1,1],
+  	[1,1,1,1,0,1,1,1,1,1,1],
+  	[1,0,0,0,0,1,1,1,1,1,1],
+  	[1,1,1,1,1,1,1,1,1,1,1],
+  	[1,1,1,1,1,1,1,1,1,1,1],
+  	[1,1,1,1,1,1,1,1,1,1,1]
+  	];
+    this.x = 2;
+    this.y = 8;
+    this.delta = 45;  //шаг персонажа в пикселях
     this.delay = 500;  //задержка в мс между шагами персонажа
     this.funcDelay = 0 //ожидание до выполнения очередной функции 
                       //(для каждой последующей функции это ожидание 
@@ -15,28 +30,33 @@ class Herro {
   };
   //Сброс параметров
   reset() {
-    console.log('1');
-    this.funcDelay = 0;
-    this.x = 3.5;
-    this.y = 12;
+    this.funcDelay = 500;
+    this.x = 2;
+    this.y = 8;
     this.show();
   }
   //Метод для перестановки персонажа в позицию, 
   //соответствующую его координатам
   show() {
     const h = document.querySelector("#herro");
-    h.style.left = this.x * this.delta + "px";
-    h.style.top = this.y * this.delta + "px";
-    console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
-    if (this.x * this.delta>370 && this.x * this.delta<450 && this.y * this.delta>170 && this.y * this.delta<250){
-      alert('finish');
-    }
+    h.style.opacity=1;
+
+    if(this.map[this.y-1][this.x-1]==0){ //роверяю наличие дороги по карте
+      	h.style.left = this.x * this.delta + "px";
+	    h.style.top = this.y * this.delta + "px";
+	    // console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
+	    if (this.x * this.delta>445 && this.x * this.delta<480 && this.y * this.delta>170 && this.y * this.delta<250){
+	    	h.style.opacity=0;
+	    }
+      }
+    
   };
   //Методы для перемещения персонажа
   goRight() {
     setTimeout(() => {
       this.x++;
       this.show();
+      
     }, this.funcDelay);
     this.funcDelay += this.delay;
   }
