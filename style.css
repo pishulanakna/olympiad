@@ -15,12 +15,26 @@
   position: relative;
   min-width: 600px;
   border: 1px solid gray;
+  background: url('images/fon.jpg') no-repeat;
+  background-size: cover;
 }
 #herro {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: darkgreen;
+  width: 100px;
+  height: 100px;
+  background: url('images/itgen.png');
+  background-size: cover;
+  z-index: 9;
+}
+#exit{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 188px;
+  left: 450px;
+  background: url('images/finish.png');
+  background-size: cover;
+  z-index: 1;
 }
 
 #start {
