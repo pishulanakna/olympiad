@@ -3,8 +3,8 @@
 //Описываем класс для нашего персонажа
 class Herro {
   constructor() {
-    this.x = 3;
-    this.y = 3;
+    this.x = 3.5;
+    this.y = 12;
     this.delta = 30;  //шаг персонажа в пикселях
     this.delay = 500;  //задержка в мс между шагами персонажа
     this.funcDelay = 0 //ожидание до выполнения очередной функции 
@@ -15,9 +15,10 @@ class Herro {
   };
   //Сброс параметров
   reset() {
+    console.log('1');
     this.funcDelay = 0;
-    this.x = 3;
-    this.y = 3;
+    this.x = 3.5;
+    this.y = 12;
     this.show();
   }
   //Метод для перестановки персонажа в позицию, 
@@ -26,6 +27,10 @@ class Herro {
     const h = document.querySelector("#herro");
     h.style.left = this.x * this.delta + "px";
     h.style.top = this.y * this.delta + "px";
+    console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
+    if (this.x * this.delta>370 && this.x * this.delta<450 && this.y * this.delta>170 && this.y * this.delta<250){
+      alert('finish');
+    }
   };
   //Методы для перемещения персонажа
   goRight() {
@@ -95,7 +100,6 @@ document.addEventListener("DOMContentLoaded",() => {
   loadBlocksLocal();
 
   document.querySelector("#start").addEventListener("click",getCode);
-  document.querySelector("#reset").addEventListener("click",gameHerro.reset.bind(gameHerro));
 
   //Сохраняем скрипт пользователя каждые 2 секунды
   setInterval(saveBlocksLocal,2000);
