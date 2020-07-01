@@ -25,6 +25,7 @@
   background: url('images/itgen.png');
   background-size: cover;
   z-index: 9;
+  transition: opacity 1s;
 }
 #exit{
   position: absolute;
