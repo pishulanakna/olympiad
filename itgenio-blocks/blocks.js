@@ -48,3 +48,20 @@ Blockly.Blocks['go_down'] = {
  this.setHelpUrl("");
   }
 };
+
+//цикл "Пока ... свободно"
+Blockly.Blocks['while_right_free'] = {
+  init: function() {
+    this.appendStatementInput("loop_body")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("Пока  ")
+        .appendField(new Blockly.FieldDropdown([["справа","right"], ["слева","left"], ["сверху","top"], ["снизу","down"]]), "direction")
+        .appendField("свободно");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
