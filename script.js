@@ -6,6 +6,25 @@
 class Herro {
 
   constructor() {
+    // текущий уровень
+    this.level=0;
+
+    // адрес фона текущего уровня
+    this.bgImageName='';
+
+    // адрес картинки персонажа
+    this.heroImageName='';
+
+    // адрес картинки с финишем
+    this.finishImageName='';
+
+
+    // массив с начальными значениями точки старта
+    this.startPosition=[[1,8]];
+
+    // массив со значениями точки финиша
+    this.finishPosition=[[8,4]];
+
     // Наша карта 1-стена, 0-дорога
     this.map = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -20,9 +39,9 @@ class Herro {
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
-    this.x = 2;
-    this.y = 8;
-    this.delta = 45; //шаг персонажа в пикселях
+    // this.x = 2;
+    // this.y = 8;
+    this.delta = 55; //шаг персонажа в пикселях
     this.delay = 500; //задержка в мс между шагами персонажа
     this.funcDelay = 500 //ожидание до выполнения очередной функции 
     //(для каждой последующей функции это ожидание 
@@ -47,7 +66,7 @@ class Herro {
     if (this.map[myY - 1][myX - 1] == 0) { //роверяю наличие дороги по карте
       h.style.left = myX * this.delta + "px";
       h.style.top = myY * this.delta + "px";
-      // console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
+      console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
       if (myX * this.delta > 445 && myX * this.delta < 480 && myY * this.delta > 170 && myY * this.delta < 250) {
         h.style.opacity = 0;
       }
@@ -118,12 +137,39 @@ class Herro {
     }
     return !wall;
   };
+
+  // Определяем какой сейчас уровень и делаем подготовку для следующего
+  newLevel=()=>{
+    if (this.level<10){
+      this.level++;
+
+    }
+    let bg_name
+    document.getElementById('curLevel').value=this.level;
+    document.getElementsByClassName('js-open-modal')[0].click();
+    this.bgImageName='images/bg/level'+this.level+'.jpg'; //генерирую адрес картинки с фоном для текущего уровня
+    this.heroImageName='images/hero/level'+this.level+'.png'; //генерирую адрес картинки персонажа для текущего уровня
+    this.finishImageName ='images/finish/level'+this.level+'.png'; //генерирую адрес картинки финиша для текущего уровня
+
+    document.querySelector('#showGame').style.background= "url("+ this.bgImageName+") no-repeat";
+    
+    document.querySelector('#herro').style.background= "url("+ this.heroImageName+") no-repeat";
+    document.querySelector('#herro').style.left = this.startPosition[this.level-1][0] * this.delta + "px";
+    document.querySelector('#herro').style.top = this.startPosition[this.level-1][1] * this.delta + "px";
+
+    document.querySelector('#exit').style.background= "url("+ this.finishImageName+") no-repeat";
+    document.querySelector('#exit').style.left = this.finishPosition[this.level-1][0] * this.delta + "px";
+    document.querySelector('#exit').style.top = this.finishPosition[this.level-1][1] * this.delta + "px";
+  };
+
+
 }
 
 //Создаём нового персонажа
 const gameHerro = new Herro();
 
 document.addEventListener("DOMContentLoaded", () => {
+  gameHerro.newLevel();
 
   const workspace = Blockly.inject('blocklyDiv', {
     toolbox: document.getElementById('toolbox')
@@ -158,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
   loadBlocksLocal();
 
   document.querySelector("#start").addEventListener("click", getCode);
@@ -168,6 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(saveBlocksLocal, 2000);
 
   //Ставим персонажа в начальную позицию
-  gameHerro.show(gameHerro.x, gameHerro.y);
+  // gameHerro.show(gameHerro.x, gameHerro.y);
 
 })

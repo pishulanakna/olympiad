@@ -15,15 +15,15 @@
   position: relative;
   min-width: 600px;
   border: 1px solid gray;
-  background: url('images/fon.jpg') no-repeat;
+  background: #ccc;
   background-size: cover;
 }
 #herro {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: url('images/itgen.png');
-  background-size: cover;
+  /*background: url('images/itgen.png');*/
+  background-size: cover !important;
   z-index: 9;
   transition: opacity 1s;
 }
@@ -33,8 +33,8 @@
   height: 80px;
   top: 188px;
   left: 450px;
-  background: url('images/finish.png');
-  background-size: cover;
+  /*background: url('images/finish.png');*/
+  background-size: cover !important;
   z-index: 1;
 }
 
@@ -44,4 +44,82 @@
 
 #reset {
   padding: 10px 20px;
+}
+
+/* Стили для модальных окон */
+.overlay {
+   opacity: 0;
+   visibility: hidden;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, .5);
+   z-index: 21;
+   transition: .7s all;
+}
+
+
+.modal {
+   opacity: 0;
+   visibility: hidden;
+   width: 100%;
+   max-width: 500px;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 30;
+   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
+   text-align: center;
+   padding: 30px;
+   border-radius: 3px;
+   background-color: #fff;
+   transition: 0.3s all;
+}
+
+.modal .content{font-size: 19px;}
+
+
+.modal.active,
+.overlay.active{
+   opacity: 1;
+   visibility: visible;
+}
+
+.modal__cross {
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   fill: #444;
+   cursor: pointer;
+   transition: 0.7s;
+}
+
+.modal__cross:hover {
+  fill: #005b7f;
+}
+a.show-mission:hover, button.ready:hover {
+  background-color: #0b8fc3;
+}
+a.show-mission, button.ready {
+   padding: 10px;
+   text-decoration: none;
+   background-color: #005b7f;
+   margin: 10px 0;
+   color: #fff;
+   border-radius: 3px;
+   font-size: 22px;
+   display: inline-block;
+   cursor: pointer;
+   outline: none;
+   transition: 0.7s;
+}
+
+button.ready {
+  float: right;
+  margin-top: 40px;
 }
