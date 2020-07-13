@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
       item.addEventListener('click', function(e) {
          e.preventDefault();
          /* При каждом клике на кнопку мы будем забирать содержимое атрибута data-modal
-            и будем искать модальное окно с таким же атрибутом. */
-         // var modalId = this.getAttribute('data-modal'),
-         //     modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
+            и будем искать модальное окно с таким же атрибутом. Данная вещь пригодится, если у нас будет несколько кнопок*/
+         var modalId = this.getAttribute('data-modal'),
+             modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
 
          lvl=document.querySelector('#curLevel').value;
-         modalElem=document.querySelector('.modal');
+         // modalElem=document.querySelector('.modal'); //Пригодится, если только 1 кнопка
          modalElem.querySelector('div.content').innerHTML=levelDescription[lvl]+levelDescription[0];
          modalElem.classList.add('active');
          overlay.classList.add('active');

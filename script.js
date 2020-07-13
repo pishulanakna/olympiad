@@ -20,17 +20,26 @@ class Herro {
 
 
     // массив с начальными значениями точки старта
-    this.startPosition=[[1,8]];
+    this.startPosition=[[1,7]];
 
     // массив со значениями точки финиша
-    this.finishPosition=[[8,4]];
+    this.finishPosition=[[8,3]];
+
+    //массив с координатами лабиринта
+    this.tracks = [
+      [
+        {begin : [1,7], leng: 4, direct: 0},
+        {begin : [4,7], leng: 5, direct: 1},
+        {begin : [4,3], leng: 5, direct: 0}
+      ]
+    ]
 
     // Наша карта 1-стена, 0-дорога
     this.map = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1],
       [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
@@ -41,7 +50,8 @@ class Herro {
     ];
     // this.x = 2;
     // this.y = 8;
-    this.delta = 55; //шаг персонажа в пикселях
+    this.delta = Math.floor(document.querySelector("#showGame").offsetWidth / this.map.length);
+   // this.delta = 55; //шаг персонажа в пикселях
     this.delay = 500; //задержка в мс между шагами персонажа
     this.funcDelay = 500 //ожидание до выполнения очередной функции 
     //(для каждой последующей функции это ожидание 
@@ -53,23 +63,26 @@ class Herro {
   //Сброс параметров
   reset() {
     this.funcDelay = 500;
-    this.x = 2;
-    this.y = 8;
+    this.x = 1;
+    this.y = 7;
     this.timeOuts = [];
     this.show(this.x, this.y);
   }
   //Метод для перестановки персонажа в позицию, 
   //соответствующую его координатам
   show(myX,myY) {
+    console.log(myX, myY)
     const h = document.querySelector("#herro");
     h.style.opacity = 1;
-    if (this.map[myY - 1][myX - 1] == 0) { //роверяю наличие дороги по карте
+    if (this.map[myY][myX] == 0) { //проверяю наличие дороги по карте
       h.style.left = myX * this.delta + "px";
       h.style.top = myY * this.delta + "px";
       console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
-      if (myX * this.delta > 445 && myX * this.delta < 480 && myY * this.delta > 170 && myY * this.delta < 250) {
-        h.style.opacity = 0;
-      }
+      //Проверяем, не достиг ли герой цели
+     if (myX == this.finishPosition[this.level-1][0] &&  myY== this.finishPosition[this.level-1][1]) {
+       h.style.opacity = 0;
+     }
+
     } else {
       //останавливаем все таймауты, чтобы остановить следующие шаги героя
       console.log(this.timeOuts);
@@ -118,25 +131,35 @@ class Herro {
   }
 
   //функция, определяющая, свободен ли путь в заданном направлении
-  isFree = (dir) => {
-    const x = gameHerro.x - 1, y = gameHerro.y - 1;
+  isFree(dir) {
+    const x = this.x, y = this.y;
     let wall;
     switch(dir) {
       case "right":
-        wall = gameHerro.map[y][x+1];
+        wall = this.map[y][x+1];
         break;
       case "left":
-        wall = gameHerro.map[y][x-1];
+        wall = this.map[y][x-1];
         break;
       case "top":
-        wall = gameHerro.map[y-1][x];
+        wall = this.map[y-1][x];
         break;
       case "down":
-        wall = gameHerro.map[y+1][x];
+        wall = this.map[y+1][x];
         break;
     }
     return !wall;
   };
+
+  //определяет, совпадают ли текущие координаты с целью 
+
+  isGoal() {
+    if (this.x == this.finishPosition[this.level-1][0] &&  this.y== this.finishPosition[this.level-1][1]) {
+      return true;
+    } else {
+      return false;
+    }
+  } 
 
   // Определяем какой сейчас уровень и делаем подготовку для следующего
   newLevel=()=>{
@@ -144,16 +167,40 @@ class Herro {
       this.level++;
 
     }
-    let bg_name
+    let bg_name;
+
+    const levelTracks = this.tracks[this.level-1];
+    levelTracks.forEach(elem => {
+      const track = document.createElement("div");
+      track.classList.add("track");
+      if (elem.direct == 0) {
+        track.style.height = this.delta + "px";
+        track.style.width = this.delta * elem.leng + "px";
+        track.style.left = this.delta * elem.begin[0] + "px";
+        track.style.top = this.delta * elem.begin[1] + "px";
+      } else {
+        track.style.width = this.delta + "px";
+        track.style.height = this.delta * elem.leng + "px";
+        track.style.left = this.delta * elem.begin[0] + "px";
+        track.style.top = this.delta * elem.begin[1] - this.delta * elem.leng + this.delta + "px";
+      }
+      document.querySelector("#showGame").append(track);
+    })
+    
+    
+   
+    
+
     document.getElementById('curLevel').value=this.level;
     document.getElementsByClassName('js-open-modal')[0].click();
     this.bgImageName='images/bg/level'+this.level+'.jpg'; //генерирую адрес картинки с фоном для текущего уровня
     this.heroImageName='images/hero/level'+this.level+'.png'; //генерирую адрес картинки персонажа для текущего уровня
     this.finishImageName ='images/finish/level'+this.level+'.png'; //генерирую адрес картинки финиша для текущего уровня
 
-    document.querySelector('#showGame').style.background= "url("+ this.bgImageName+") no-repeat";
+    document.querySelector('#showGame').style.backgroundImage = "url("+ this.bgImageName+")";
     
     document.querySelector('#herro').style.background= "url("+ this.heroImageName+") no-repeat";
+    console.log(this.startPosition, this.level);
     document.querySelector('#herro').style.left = this.startPosition[this.level-1][0] * this.delta + "px";
     document.querySelector('#herro').style.top = this.startPosition[this.level-1][1] * this.delta + "px";
 
@@ -171,6 +218,7 @@ const gameHerro = new Herro();
 document.addEventListener("DOMContentLoaded", () => {
   gameHerro.newLevel();
 
+  // активируем панель инструментов
   const workspace = Blockly.inject('blocklyDiv', {
     toolbox: document.getElementById('toolbox')
   });

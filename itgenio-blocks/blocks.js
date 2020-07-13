@@ -50,7 +50,7 @@ Blockly.Blocks['go_down'] = {
 };
 
 //цикл "Пока ... свободно"
-Blockly.Blocks['while_right_free'] = {
+Blockly.Blocks['while_direction_free'] = {
   init: function() {
     this.appendStatementInput("loop_body")
         .setCheck(null)
@@ -61,6 +61,57 @@ Blockly.Blocks['while_right_free'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(150);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//цикл "Пока цель не достигнута"
+Blockly.Blocks['while_not_goal'] = {
+  init: function() {
+    this.appendStatementInput("loop_body")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("Пока цель не достигнута")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(150);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//условие "Если ... свободно"
+Blockly.Blocks['if_direction_free'] = {
+  init: function() {
+    this.appendStatementInput("condition_body")
+        .setCheck(null)
+        .appendField("Если ")
+        .appendField(new Blockly.FieldDropdown([["справа","right"], ["слева","left"], ["сверху","top"], ["снизу","down"]]), "direction")
+        .appendField("свободно");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//условие "Если ... свободно, иначе"
+Blockly.Blocks['if_direction_free_else'] = {
+  init: function() {
+    this.appendStatementInput("condition_body")
+        .setCheck(null)
+        .appendField("Если ")
+        .appendField(new Blockly.FieldDropdown([["справа","right"], ["слева","left"], ["сверху","top"], ["снизу","down"]]), "direction")
+        .appendField("свободно");
+    this.appendStatementInput("else_body")
+        .setCheck(null)
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("иначе");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("");
   }

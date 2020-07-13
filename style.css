@@ -8,8 +8,9 @@
 
 #blocklyDiv {
   height: 600px; 
-  width: 600px;
+  width: 700px;
 }
+
 
 #showGame {
   position: relative;
@@ -17,23 +18,32 @@
   border: 1px solid gray;
   background: #ccc;
   background-size: cover;
+  background-repeat: no-repeat
 }
 #herro {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  /*background: url('images/itgen.png');*/
+  width: 85px;
+  height: 85px;
   background-size: cover !important;
   z-index: 9;
   transition: opacity 1s;
 }
+
+.track {
+  box-sizing: content-box;
+  position: absolute;
+  padding: 0 30px 30px 0;
+  border-radius: 40px;
+  background-color: #fff;
+  opacity: 0.7;
+}
+
 #exit{
   position: absolute;
   width: 80px;
   height: 80px;
   top: 188px;
   left: 450px;
-  /*background: url('images/finish.png');*/
   background-size: cover !important;
   z-index: 1;
 }
@@ -56,7 +66,7 @@
    width: 100%;
    height: 100%;
    background-color: rgba(0, 0, 0, .5);
-   z-index: 21;
+   z-index: 998;
    transition: .7s all;
 }
 
@@ -70,7 +80,7 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   z-index: 30;
+   z-index: 999;
    box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
    text-align: center;
    padding: 30px;
@@ -123,4 +133,3 @@ button.ready {
   float: right;
   margin-top: 40px;
 }
-/*test*/

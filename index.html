@@ -40,11 +40,19 @@
 
   <!--Создаём панель инструментов-->
   <xml id="toolbox" style="display: none">
-    <block type="go_left"></block>
-    <block type="go_right"></block>
-    <block type="go_up"></block>
-    <block type="go_down"></block>
-    <block type="while_right_free"></block>
+    <category name="Движение">
+      <block type="go_left"></block>
+      <block type="go_right"></block>
+      <block type="go_up"></block>
+      <block type="go_down"></block>
+    </category>
+    <category name="Управление">
+      <block type="while_direction_free"></block>
+      <block type="while_not_goal"></block>
+      <block type="if_direction_free"></block>
+      <block type="if_direction_free_else"></block>
+    </category>
+    
   </xml>
 
   <script src="script.js"></script>

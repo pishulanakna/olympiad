@@ -20,13 +20,47 @@ Blockly.JavaScript['go_down'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['while_right_free'] = function(block) {
+Blockly.JavaScript['while_direction_free'] = function(block) {
   var dropdown_direction = block.getFieldValue('direction');
   var statements_loop_body = Blockly.JavaScript.statementToCode(block, 'loop_body');
-  // TODO: Assemble JavaScript into code variable.
   var code = `
   while (gameHerro.isFree("${dropdown_direction}")) {
     ${statements_loop_body}
+  };\n`;
+  return code;
+};
+
+Blockly.JavaScript['while_not_goal'] = function(block) {
+  var statements_loop_body = Blockly.JavaScript.statementToCode(block, 'loop_body');
+  var code = `
+  let limitLoop = 1000;
+  while (!gameHerro.isGoal() && limitLoop > 0) {
+    limitLoop--;
+    console.log(limitLoop)
+    ${statements_loop_body}
+  };\n`;
+  return code;
+};
+
+Blockly.JavaScript['if_direction_free'] = function(block) {
+  var dropdown_direction = block.getFieldValue('direction');
+  var statements_condition_body = Blockly.JavaScript.statementToCode(block, 'condition_body');
+  var code = `
+  if (gameHerro.isFree("${dropdown_direction}")) {
+    ${statements_condition_body}
+  };\n`;
+  return code;
+};
+
+Blockly.JavaScript['if_direction_free_else'] = function(block) {
+  var dropdown_direction = block.getFieldValue('direction');
+  var statements_condition_body = Blockly.JavaScript.statementToCode(block, 'condition_body');
+  var statements_else_body = Blockly.JavaScript.statementToCode(block, 'else_body');
+  var code = `
+  if (gameHerro.isFree("${dropdown_direction}")) {
+    ${statements_condition_body}
+  } else {
+    ${statements_else_body}
   };\n`;
   return code;
 };
