@@ -71,13 +71,13 @@ class Herro {
   //Метод для перестановки персонажа в позицию, 
   //соответствующую его координатам
   show(myX,myY) {
-    console.log(myX, myY)
+    // console.log(myX, myY)
     const h = document.querySelector("#herro");
     h.style.opacity = 1;
     if (this.map[myY][myX] == 0) { //проверяю наличие дороги по карте
       h.style.left = myX * this.delta + "px";
       h.style.top = myY * this.delta + "px";
-      console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
+      // console.log(h.style.top,h.style.left, this.x * this.delta, this.y * this.delta);
       //Проверяем, не достиг ли герой цели
      if (myX == this.finishPosition[this.level-1][0] &&  myY== this.finishPosition[this.level-1][1]) {
        h.style.opacity = 0;
@@ -86,7 +86,7 @@ class Herro {
     } else {
       //останавливаем все таймауты, чтобы остановить следующие шаги героя
       console.log(this.timeOuts);
-      this.timeOuts.forEach(element => {
+      this.timeOuts.forEach(function(element){
         clearTimeout(element);
       });  
       document.querySelector("#start").disabled = false;
@@ -200,7 +200,7 @@ class Herro {
     document.querySelector('#showGame').style.backgroundImage = "url("+ this.bgImageName+")";
     
     document.querySelector('#herro').style.background= "url("+ this.heroImageName+") no-repeat";
-    console.log(this.startPosition, this.level);
+
     document.querySelector('#herro').style.left = this.startPosition[this.level-1][0] * this.delta + "px";
     document.querySelector('#herro').style.top = this.startPosition[this.level-1][1] * this.delta + "px";
 
@@ -237,14 +237,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //Сохранение скрипта, составленного пользователем в локальное хранилище
-  const saveBlocksLocal = () => {
+  const saveBlocksLocal = function(){
     let xml = Blockly.Xml.workspaceToDom(workspace);
     let xml_text = Blockly.Xml.domToText(xml);
     localStorage.setItem("blocks", xml_text);
   }
 
   //Загрузка из локального хранилища
-  const loadBlocksLocal = () => {
+  const loadBlocksLocal = function(){
     if (localStorage.getItem("blocks")) {
       let xml_text = localStorage.getItem("blocks")
       let xml = Blockly.Xml.textToDom(xml_text);
