@@ -1,2 +1,2 @@
-User-agent: *
-Disallow: /storage
+User-agent: *
+Disallow: /storage

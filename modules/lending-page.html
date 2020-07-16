@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Олимпиада</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/lending-style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header_title">
+        <a href="https://itgen.io/" class="logo">
+          <img src="images/lending/logo.png"><h2>Айтигенио</h2>
+        </a>
+        <h1>Международная олимпиада по&#160;программированию</h1>
+        <h2>Пройди увлекательный квест и&#160;выиграй ценные призы!</h2>
+        <a href=".section.registrate" class="button" id="start">Принять участие!</a>
+      </div>
+      <div class="photo">
+      </div>
+    </div>
+  </header>
+
+  <section class="section info">
+    <div class="container">
+      <h1>Почему нужно участвовать в&#160;олимпиаде?</h1>
+      <div class="info_body">
+        <div class="text">
+          <div class="item item1">
+            <div class="img" style="background-image: url(images/lending/icon1.webp);"></div>
+            <p>Для детей от 6 до 17 лет</p>
+          </div>
+          <div class="item item2">
+            <div class="img" style="background-image: url(images/lending/icon2.png);"></div>
+            <p>Знание языков программирования
+              не&#160;требуется</p>
+          </div>
+          <div class="item item3">
+            <div class="img" style="background-image: url(images/lending/icon3.webp);"></div>
+            <p>Интересный сюжет квеста</p>
+          </div>
+          <div class="item item4">
+            <div class="img" style="background-image: url(images/lending/icon4.webp);"></div>
+            <p>Ценные призы</p>
+          </div>
+        </div>
+        <img class="screen" src="images/lending/screen.jpg" alt="">
+      </div>
+    </div>  
+  </section>
+
+  <section class="section note">
+    <div class="container">
+      <div class="text">
+        <p>Участвовать в олимпиаде могут все дети от 7 до 16 лет:</p>
+        <ul>
+          <li>для новичков – это отличная возможность познакомиться с основами программирования;</li>
+          <li>для тех, кто уже занимается - проверить свои знания и увлекательно провести время</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section how">
+    <div class="container">
+      <img src="images/lending/itgenik_ok.webp" alt="">
+      <h1>Как проходит олимпиада?</h1>
+      <ul>
+        <li>На выполнение заданий дается 2 часа;</li>
+        <li>Знание языков программирования не требуется;</li>
+        <li>Каждый участник, выполнивший все задания, получит подарок от Айтигенио;</li>
+        <li>Главный приз получат участники, набравшие наибольшее количество баллов</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section registrate">
+    <div class="container">
+      <h1>Принять участие</h1>
+      <form action="/" method="post">
+
+        <label for="name">Имя и Фамилия участника</label>
+        <input type="text" name="name" placeholder="Имя и Фамилия участника">
+
+        <label for="old">Возраст участника</label>
+        <select ame="old">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9" selected>9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+        </select>
+
+        <label for="parent_name">Имя и Фамилия родителя</label>
+        <input type="text" name="parent_name" placeholder="Имя и Фамилия родителя">
+
+        <label for="tel">Телефон родителя</label>
+        <input type="tel" name="tel">
+
+        <label for="email">Email родителя</label>
+        <input type="email" name="email">
+        <div class="buttons">
+          <input type="submit" class="button" value="Зарегистрироваться">
+          <a href="/?play" class="button begin">Начать</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <h1>Айтигенио - онлайн-школа современных знаний</h1>
+      <p>Обучаем программированию, математике, компьютерной графике и многому другому.</p>
+      <a href="https://itgen.io/" class="logo">ITGEN.IO</a>
+      <div class="social">
+        <a href="https://www.facebook.com/ITGEN.IO"><img src="images/lending/facebook.svg" alt=""></a>
+        <a href="https://twitter.com/itgenik"><img src="images/lending/vk.svg" alt=""></a>
+        <a href="https://www.instagram.com/itgen.io/"><img src="images/lending/insta.svg" alt=""></a>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/lending.js"></script>
+</body>
+</html>
