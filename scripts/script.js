@@ -9,6 +9,9 @@ class Herro {
     // текущий уровень
     this.level=0;
 
+    //текущий счет
+    this.score=0;
+
     // адрес фона текущего уровня
     this.bgImageName='';
 
@@ -48,6 +51,9 @@ class Herro {
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
+
+    this.isShowedHint=[0,0,0,0,0,0,0,0,0,0]; //Была ли подсказка уже показана. 1-да, 0 нет
+
     // this.x = 2;
     // this.y = 8;
     this.delta = Math.floor(document.querySelector("#showGame").offsetWidth / this.map.length);
@@ -81,7 +87,8 @@ class Herro {
       //Проверяем, не достиг ли герой цели
      if (myX == this.finishPosition[this.level-1][0] &&  myY== this.finishPosition[this.level-1][1]) {
        // this.h.style.opacity = 0;
-       this.newLevel();
+       // this.newLevel();
+       this.changeScore('add', 3);
      }
 
     } else {
@@ -93,6 +100,31 @@ class Herro {
       document.querySelector("#start").disabled = false;
     }
   };
+
+  changeScore=function(op,val){
+    console.log('ch');
+    let bonus=0;
+  
+    switch(op){
+      case 'add':
+        bonus=document.querySelectorAll('div#score .add')[0];
+        // bonus.style.display='block';
+        bonus.classList.add('showBonus');
+        this.score+=val;
+        break;
+      
+      case 'sub':
+        bonus=document.querySelectorAll('div#score .sub')[0];
+        // bonus.style.display='block';
+        bonus.classList.add('showBonus');
+        this.score-=val;
+        break;
+    }
+
+    console.log('val='+this.score);
+    document.querySelectorAll('#score div.value')[0].innerHTML=this.score;
+
+  }
 
   //Методы для перемещения персонажа
   goRight() {
@@ -262,6 +294,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#start").addEventListener("click", getCode);
 
   document.querySelector("#reset").addEventListener("click", gameHerro.reset.bind(gameHerro));
+  document.querySelector("#hint").addEventListener("click", showHint);
+
+  function showHint(){
+    if(gameHerro.isShowedHint[gameHerro.level-1]==0){
+      if(gameHerro.score>0){
+        gameHerro.isShowedHint[gameHerro.level-1]=1;
+        gameHerro.changeScore('sub',1);
+      }
+    }
+  }
 
   //Сохраняем скрипт пользователя каждые 2 секунды
   setInterval(saveBlocksLocal, 2000);

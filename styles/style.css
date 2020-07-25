@@ -4,6 +4,14 @@
 
 .container {
   display: flex;
+  margin: 30px 0;
+}
+
+.page-content{
+  max-width: 1200px;
+  width: 80%;
+  min-width: 960px;
+  margin: 0 auto;
 }
 
 #blocklyDiv {
@@ -112,7 +120,7 @@
 .modal__cross:hover {
   fill: #005b7f;
 }
-a.show-mission:hover, button.ready:hover {
+.btn:hover, button.ready:hover {
   background-color: #0b8fc3;
 }
 
@@ -120,7 +128,7 @@ a.show-hint:hover {
   background-color: #34ab2fb5;
 }
 
-.js-open-modal, button.ready{
+.btn, button.ready{
    padding: 10px;
    text-decoration: none;
    margin: 10px 0;
@@ -133,7 +141,7 @@ a.show-hint:hover {
    transition: 0.7s;
 }
 
-a.show-mission, button.ready{
+.btn, button.ready{
   background-color: #005b7f;
 }
 
@@ -145,4 +153,49 @@ a.show-hint{
 button.ready {
   float: right;
   margin-top: 40px;
+}
+
+div#score{
+  float: right;
+  display: inline-flex;
+  align-items: center;
+}
+
+div#score .value{
+  font-size: 50px;
+  font-weight: 700;
+  color: #f00;
+  padding: 0 7px;
+}
+div#score{
+  position: relative;
+}
+
+
+div#score div.scoreAnim{
+  transform: scale(15);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9990;
+  font-size: 35px;
+  font-weight: 600;
+  transition: transform 1s, opacity 1s;
+  opacity: 0.5;
+  /*display: none;*/
+}
+
+
+div#score div.add{
+  color: #0f0;
+}
+
+div#score div.sub{
+  color: #f00;
+}
+
+.showBonus{
+  transition-delay: opacity 0.5s;
+  opacity: 0 !important;
+  transform: scale(1)!important;
 }

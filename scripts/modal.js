@@ -23,8 +23,6 @@ var levelHint=
     ];
 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
 
    /* Записываем в переменные массив элементов-кнопок и подложку.
