@@ -180,7 +180,7 @@ div#score div.scoreAnim{
   z-index: 9990;
   font-size: 35px;
   font-weight: 600;
-  transition: transform 1s, opacity 1s;
+  transition: 1s;
   opacity: 0.5;
   /*display: none;*/
 }
@@ -195,7 +195,7 @@ div#score div.sub{
 }
 
 .showBonus{
-  transition-delay: opacity 0.5s;
+  transition: 1s;
   opacity: 0 !important;
   transform: scale(1)!important;
 }

@@ -104,24 +104,44 @@ class Herro {
   changeScore=function(op,val){
     console.log('ch');
     let bonus=0;
+    let elem=0;
   
     switch(op){
       case 'add':
-        bonus=document.querySelectorAll('div#score .add')[0];
-        // bonus.style.display='block';
-        bonus.classList.add('showBonus');
-        this.score+=val;
+      	elem=document.createElement('div');
+      	elem.className = "scoreAnim add";
+      	elem.innerHTML = "+3";
+      	document.getElementById('score').append(elem);
+      	
+      	window.setTimeout(function() {
+            elem.classList.add("showBonus")
+        }, 100)
+
+
+      	this.score+=val;
+      	elem.classList.remove("showBonus");
+      	setTimeout(() => div.remove(), 2000);
         break;
       
       case 'sub':
-        bonus=document.querySelectorAll('div#score .sub')[0];
-        // bonus.style.display='block';
-        bonus.classList.add('showBonus');
-        this.score-=val;
+        elem=document.createElement('div');
+      	elem.className = "scoreAnim sub";
+      	elem.innerHTML = "-1";
+      	document.getElementById('score').append(elem);
+      	
+      	window.setTimeout(function() {
+            elem.classList.add("showBonus")
+        }, 100)
+
+
+      	this.score-=val;
+      	elem.classList.remove("showBonus");
+      	setTimeout(() => div.remove(), 2000);
+        break;
         break;
     }
 
-    console.log('val='+this.score);
+    // console.log('val='+this.score);
     document.querySelectorAll('#score div.value')[0].innerHTML=this.score;
 
   }
