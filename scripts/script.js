@@ -52,7 +52,7 @@ class Herro {
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
-    this.isShowedHint=[0,0,0,0,0,0,0,0,0,0]; //Была ли подсказка уже показана. 1-да, 0 нет
+    this.isShowedHint=[-1,0,0,0,0,0,0,0,0,0]; //Была ли подсказка уже показана. 1-да, 0 нет, -1 подсказки нет на уровне
 
     // this.x = 2;
     // this.y = 8;
@@ -102,7 +102,6 @@ class Herro {
   };
 
   changeScore=function(op,val){
-    console.log('ch');
     let bonus=0;
     let elem=0;
   
@@ -141,7 +140,6 @@ class Herro {
         break;
     }
 
-    // console.log('val='+this.score);
     document.querySelectorAll('#score div.value')[0].innerHTML=this.score;
 
   }
@@ -217,11 +215,12 @@ class Herro {
 
   // Определяем какой сейчас уровень и делаем подготовку для следующего
   newLevel=()=>{
+  	// console.log('овый уровень');
     // this.h.style.opacity = 1;
+
+    (this.isShowedHint[this.level]==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 
     if (this.level<10){
       this.level++;
-      console.log(this.level);
-
     }
     let bg_name;
 
