@@ -12,9 +12,9 @@ var levelDescription=
     ];
 
 var levelHint=
-    ["", //текст для всех модсказок. Может кнопка какая
+    ["<h2>Подсказка!</h2>", //текст для всех модсказок. Может кнопка какая
     "<p>Подсказка для уровень 1</p>",
-    "<p>Подсказка для уровень 2</p>",
+    "<p>Используй цикл “пока цель не достигнута“, и внутри 4 цикла “пока .. свободно” для 4-х направлений.</p>",
     "<p>Подсказка для уровень 3</p>",
     "<p>Подсказка для уровень 4</p>",
     "<p>Подсказка для уровень 5</p>",
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
               });
               break;
             case '2':
-              modalElem.querySelector('div.content').innerHTML=levelHint[lvl]+levelHint[0];
+              modalElem.querySelector('div.content').innerHTML=levelHint[0] + levelHint[lvl];
               break;
           }
          

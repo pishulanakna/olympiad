@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: Arial;
 }
 
 .container {
@@ -8,7 +9,7 @@
 }
 
 .page-content{
-  max-width: 1200px;
+  max-width: 1400px;
   width: 80%;
   min-width: 960px;
   margin: 0 auto;
@@ -135,7 +136,7 @@ a.show-hint:hover {
    color: #fff;
    border-radius: 3px;
    font-size: 22px;
-   display: inline-block;
+   display: inline-block !important;
    cursor: pointer;
    outline: none;
    transition: 0.7s;

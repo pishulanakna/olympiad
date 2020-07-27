@@ -7,10 +7,10 @@ class Herro {
 
   constructor() {
     // текущий уровень
-    this.level=0;
+    this.level=1;
 
     //текущий счет
-    this.score=0;
+    this.score=3;
 
     // адрес фона текущего уровня
     this.bgImageName='';
@@ -23,34 +23,42 @@ class Herro {
 
 
     // массив с начальными значениями точки старта
-    this.startPosition=[1,7];
+    this.startPosition=[2,11];
 
     // массив со значениями точки финиша
-    this.finishPosition=[8,3];
+    this.finishPosition=[11,6];
 
     //массив с координатами лабиринта
     this.tracks = [
-        {begin : [1,7], leng: 4, direct: 0},
-        {begin : [4,7], leng: 5, direct: 1},
-        {begin : [4,3], leng: 5, direct: 0}
+        {begin : [2,11], leng: 4, direct: 0},
+        {begin : [5,11], leng: 4, direct: 1},
+        {begin : [1,8], leng: 5, direct: 0},
+        {begin : [1,8], leng: 5, direct: 1},
+        {begin : [1,4], leng: 3, direct: 0},
+        {begin : [3,4], leng: 4, direct: 1},
+        {begin : [3,1], leng: 6, direct: 0},
+        {begin : [8,6], leng: 6, direct: 1},
+        {begin : [8,6], leng: 4, direct: 0}
     ]
 
     // Наша карта 1-стена, 0-дорога
     this.map = [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1],
-      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+      [1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+      [1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
-    this.isShowedHint=-1; //Была ли подсказка уже показана. 1-да, 0 нет, -1 подсказки нет на уровне
+    this.isShowedHint=0; //Была ли подсказка уже показана. 1-да, 0 нет, -1 подсказки нет на уровне
 
     // this.x = 2;
     // this.y = 8;
@@ -69,8 +77,9 @@ class Herro {
   //Сброс параметров
   reset() {
     this.funcDelay = 500;
-    this.x = 1;
-    this.y = 7;
+    console.log(this.startPosition[1]);
+    this.x = this.startPosition[0];
+    this.y = this.startPosition[1];
     this.timeOuts = [];
     this.show(this.x, this.y);
   }
@@ -78,7 +87,7 @@ class Herro {
   //соответствующую его координатам
   show(myX,myY) {
 
-    this.h.style.opacity = 1;
+    // this.h.style.opacity = 1;
     if (this.map[myY][myX] == 0) { //проверяю наличие дороги по карте
       this.h.style.left = myX * this.delta + "px";
       this.h.style.top = myY * this.delta + "px";
@@ -87,6 +96,7 @@ class Herro {
        // this.h.style.opacity = 0;
        // this.newLevel();
        this.changeScore('add', 3);
+       this.isGoal(); //не работает
      }
 
     } else {
@@ -205,7 +215,9 @@ class Herro {
 
   isGoal() {
     if (this.x == this.finishPosition[0] &&  this.y== this.finishPosition[1]) {
+      console.log('Completed');
       return true;
+
     } else {
       return false;
     }
