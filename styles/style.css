@@ -20,6 +20,9 @@
   width: 700px;
 }
 
+.blocklyTreeLabel{
+	cursor: pointer;
+}
 
 #showGame {
   position: relative;
@@ -156,13 +159,13 @@ button.ready {
   margin-top: 40px;
 }
 
-div#score{
+div#score, #curlevel{
   float: right;
   display: inline-flex;
   align-items: center;
 }
 
-div#score .value{
+div#score .value, #curlevel{
   font-size: 50px;
   font-weight: 700;
   color: #f00;
@@ -170,6 +173,11 @@ div#score .value{
 }
 div#score{
   position: relative;
+}
+
+#curlevel{
+	margin-right: 100px;
+	color: #cfcfcf;
 }
 
 
