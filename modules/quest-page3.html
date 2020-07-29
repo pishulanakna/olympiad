@@ -16,17 +16,18 @@
 </head>
 <body>
 	<div class="page-content">
-	  <input type="hidden" id='curLevel' value='3'> <!-- Текущий уровень -->
-		
-	  <div id="score">
-	  	<div class="value">6</div>
-	  	<img src="../images/coin.png">
-	  </div>
-	  <div id="curlevel">3/10</div>
+		<div class="top-panel">
+		  <input type="hidden" id='curLevel' value='3'> <!-- Текущий уровень -->
+			
+		  <div id="score">
+		  	<div class="value">6</div>
+		  	<img src="../images/genic.png">
+		  </div>
+		  <div id="curlevel">3/10</div>
 
-	  <a href="#" class="js-open-modal show-mission btn" data-modal="1">Посмотреть миссию</a>
-	  <a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка</a>
-	  
+		  <a href="#" class="js-open-modal show-mission btn" data-modal="1">Миссия</a>
+		  <a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка &nbsp;<img src="../images/genic.png" alt="">&nbsp; -1</a>
+		</div>
 
 	  <div class="modal" data-modal="1">
 	   <!--   Svg иконка для закрытия окна  -->
@@ -48,14 +49,15 @@
 	  <div class="container">
 	  <!--Это див, в котором будет панель инструментов-->
 	    <div id="blocklyDiv"></div>
-
+		
 	    <div id="showGame">
 	      <div id="herro"></div>
 	      <div id="exit"></div>
+	      <button id="start" class="btn"><img src="../images/play.png" alt="">&nbsp;Старт</button>
 	    </div>
 	  </div>
-	  <button id="start" class="btn">Старт</button>
-	  <button id="reset" class="btn">Вернуть персонажа</button>
+	  <!-- <button id="start" class="btn">Старт</button>
+	  <button id="reset" class="btn">Вернуть персонажа</button> -->
 
 	  <!--Создаём панель инструментов-->
 	  <xml id="toolbox" style="display: none">

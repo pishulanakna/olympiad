@@ -28,44 +28,59 @@ class Herro {
     // массив со значениями точки финиша
     this.finishPosition=[11,2];
 
-    //массив с координатами лабиринта
-    this.tracks = [
-        {begin : [0,13], leng: 2, direct: 0},
-        {begin : [1,13], leng: 9, direct: 1},
-        {begin : [1,10], leng: 3, direct: 0},
-        {begin : [1,5], leng: 4, direct: 0},
-        {begin : [4,7], leng: 8, direct: 1},
-        {begin : [4,0], leng: 3, direct: 0},
-        {begin : [4,7], leng: 4, direct: 0},
-        {begin : [7,11], leng: 8, direct: 1},
-        {begin : [7,11], leng: 7, direct: 0},
-        {begin : [9,12], leng: 2, direct: 1},
-        {begin : [13,11], leng: 10, direct: 1},
-        {begin : [11,8], leng: 3, direct: 0},
-        {begin : [11,2], leng: 3, direct: 0}
+    // массив с координатами лабиринта
+    //я генерирую массив ниже в функции
+    // this.tracks = [
+    //     {begin : [0,13], leng: 1, direct: 0},
+    //     {begin : [1,13], leng: 1, direct: 1},
+    //     {begin : [1,10], leng: 3, direct: 0},
+    //     {begin : [1,5], leng: 4, direct: 0},
+    //     {begin : [4,7], leng: 8, direct: 1},
+    //     {begin : [4,0], leng: 3, direct: 0},
+    //     {begin : [4,7], leng: 4, direct: 0},
+    //     {begin : [7,11], leng: 8, direct: 1},
+    //     {begin : [7,11], leng: 7, direct: 0},
+    //     {begin : [9,12], leng: 2, direct: 1},
+    //     {begin : [13,11], leng: 10, direct: 1},
+    //     {begin : [11,8], leng: 3, direct: 0},
+    //     {begin : [11,2], leng: 3, direct: 0}
 
-    ];
+    // ];
 
   
 
     // Наша карта 1-стена, 0-дорога
     this.map = [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+      [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+      [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
       [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
+
+    function createTrack(array){
+    	let res=[];
+    	for(let i=0; i<array.length; i++){
+    		for(let j=0; j<array.length; j++){
+    			if(array[i][j]==0){
+    				res.push({begin : [j,i], leng: 1, direct: 0});
+    			}
+    		}
+    	}
+    	return res;
+    }
+    this.tracks=createTrack(this.map);
+    // console.log(a);
 
     this.isShowedHint=0; //Была ли подсказка уже показана. 1-да, 0 нет, -1 подсказки нет на уровне
 
@@ -82,6 +97,8 @@ class Herro {
     this.timeOuts = []; //здесь будем хранить таймауты для каждого отображения героя
 
     this.h = document.querySelector("#herro"); //Наш персонаж
+    this.h.style.width='38px';
+    this.h.style.height='38px';
   };
   //Сброс параметров
   reset() {
@@ -249,13 +266,13 @@ class Herro {
       const track = document.createElement("div");
       track.classList.add("track");
       if (elem.direct == 0) {
-        track.style.height = this.delta + "px";
-        track.style.width = this.delta * elem.leng + "px";
+        track.style.height = this.delta/5 + "px";
+        track.style.width = this.delta/5 * elem.leng + "px";
         track.style.left = this.delta * elem.begin[0] + "px";
-        track.style.top = this.delta * elem.begin[1] + "px";
+        track.style.top = this.delta * elem.begin[1]+20 + "px";
       } else {
-        track.style.width = this.delta + "px";
-        track.style.height = this.delta * elem.leng + "px";
+        track.style.width = this.delta/5 + "px";
+        track.style.height = this.delta/5 * elem.leng + "px";
         track.style.left = this.delta * elem.begin[0] + "px";
         track.style.top = this.delta * elem.begin[1] - this.delta * elem.leng + this.delta + "px";
       }
@@ -277,11 +294,13 @@ class Herro {
     document.querySelector('#herro').style.background= "url("+ this.heroImageName+") no-repeat";
 
     document.querySelector('#herro').style.left = this.startPosition[0] * this.delta + "px";
-    document.querySelector('#herro').style.top = this.startPosition[1] * this.delta + "px";
+    document.querySelector('#herro').style.top = this.startPosition[1] * this.delta + this.delta*0.5 + "px";
 
     document.querySelector('#exit').style.background= "url("+ this.finishImageName+") no-repeat";
+    document.querySelector('#exit').style.width='38px';
+    document.querySelector('#exit').style.height='38px';
     document.querySelector('#exit').style.left = this.finishPosition[0] * this.delta + "px";
-    document.querySelector('#exit').style.top = this.finishPosition[1] * this.delta + "px";
+    document.querySelector('#exit').style.top = this.finishPosition[1] * this.delta+ this.delta*0.5 + "px";
   };
 
 
@@ -332,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#start").addEventListener("click", getCode);
 
-  document.querySelector("#reset").addEventListener("click", gameHerro.reset.bind(gameHerro));
+  // document.querySelector("#reset").addEventListener("click", gameHerro.reset.bind(gameHerro));
   document.querySelector("#hint").addEventListener("click", showHint);
 
   function showHint(){

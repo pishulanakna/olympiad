@@ -1,11 +1,23 @@
 * {
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Roboto, Arial;
+}
+
+body{
+	background: url('../images/fon.jpg') no-repeat;
+	background-size: cover;
 }
 
 .container {
   display: flex;
-  margin: 30px 0;
+/*  margin: 30px 0;*/
+}
+
+.top-panel{
+	background: #594284;
+	border-radius: 40px 40px 0 0;
+	border: solid #594284 1px;
+	padding: 10px 20px;
 }
 
 .page-content{
@@ -13,6 +25,9 @@
   width: 80%;
   min-width: 960px;
   margin: 0 auto;
+  border-radius: 40px;
+  background: #fff;
+  margin-top: 50px;
 }
 
 #blocklyDiv {
@@ -61,7 +76,25 @@
 }
 
 #start {
-  padding: 10px 20px;
+	padding: 10px 20px;
+	background:#e1a053;
+	border: none;
+	margin-left: 10px;
+	color: #fff;
+   	display: inline-flex !important;
+    align-items: center;
+
+}
+
+.blocklyTreeRow{
+	/*font-weight: 500;
+	font-size: 16px;
+	line-height: 91%;*/
+	padding: 16px 21px;
+	height: 48px; 
+	background: #e1e4ff;
+	cursor: pointer;
+
 }
 
 #reset {
@@ -124,9 +157,9 @@
 .modal__cross:hover {
   fill: #005b7f;
 }
-.btn:hover, button.ready:hover {
+/*.btn:hover, button.ready:hover {
   background-color: #0b8fc3;
-}
+}*/
 
 a.show-hint:hover {
   background-color: #34ab2fb5;
@@ -143,14 +176,30 @@ a.show-hint:hover {
    cursor: pointer;
    outline: none;
    transition: 0.7s;
+   background-color: #005b7f;
 }
 
-.btn, button.ready{
-  background-color: #005b7f;
+
+
+.btn, #score{
+  background-color: #fff;
+  border-radius: 50px;
+  margin-right: 20px;
+  padding: 13px 16px;
+  text-decoration: none;
+  margin: 10px 0;
+  color: #000;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  height: 50px;
+
 }
 
 a.show-hint{
-  background-color: #057f00;
+	margin-left: 20px;
+	display: inline-flex !important;
+	align-items: center;
 }
 
 
@@ -166,11 +215,12 @@ div#score, #curlevel{
 }
 
 div#score .value, #curlevel{
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 700;
   color: #f00;
   padding: 0 7px;
 }
+
 div#score{
   position: relative;
 }
