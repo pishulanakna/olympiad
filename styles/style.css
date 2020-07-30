@@ -1,3 +1,11 @@
+@font-face{
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 * {
   box-sizing: border-box;
   font-family: Roboto, Arial;
@@ -10,7 +18,6 @@ body{
 
 .container {
   display: flex;
-/*  margin: 30px 0;*/
 }
 
 .top-panel{
@@ -18,6 +25,47 @@ body{
 	border-radius: 40px 40px 0 0;
 	border: solid #594284 1px;
 	padding: 10px 20px;
+	display: flex;
+    justify-content: space-between;
+}
+
+#levels ul{
+	padding: 0;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+#levels ul li{
+	float: left;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	list-style: none;
+	margin-right: 8px;
+	border-radius: 50%;
+	font-size: 18px;
+	color: #52449B;
+	line-height: 22px;
+	background-color: #b1a4c5;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#levels a{
+	text-decoration: none;
+	font-weight: 500;
+}
+
+#levels ul li:last-child{
+	margin-right: 0px;
+}
+
+#levels ul li.active{
+	background-color: #fff;
+	font-weight: 700;
+	box-shadow: 0 0 9px rgba(255,255,255,0.5);
 }
 
 .page-content{
@@ -32,7 +80,8 @@ body{
 
 #blocklyDiv {
   height: 600px; 
-  width: 700px;
+  flex: 1;
+  
 }
 
 .blocklyTreeLabel{
@@ -222,7 +271,10 @@ div#score .value, #curlevel{
 }
 
 div#score{
-  position: relative;
+	position: relative;
+	min-width: 118px;
+	display: flex;
+    justify-content: center;
 }
 
 #curlevel{
