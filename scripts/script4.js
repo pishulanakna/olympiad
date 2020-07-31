@@ -7,7 +7,7 @@ class Herro {
 
   constructor() {
     // текущий уровень
-    this.level=4;
+    this.level=3;
 
     //текущий счет
     this.score=6;
@@ -242,7 +242,6 @@ class Herro {
 
   isGoal() {
     if (this.x == this.finishPosition[0] &&  this.y== this.finishPosition[1]) {
-      console.log('Completed');
       return true;
 
     } else {
@@ -351,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#start").addEventListener("click", getCode);
 
-  // document.querySelector("#reset").addEventListener("click", gameHerro.reset.bind(gameHerro));
+  document.querySelector("#reset").addEventListener("click", gameHerro.reset.bind(gameHerro));
   document.querySelector("#hint").addEventListener("click", showHint);
 
   function showHint(){

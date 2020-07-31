@@ -29,6 +29,13 @@ body{
     justify-content: space-between;
 }
 
+.tool-pannel{
+	height: 72px;
+	width: 100%;
+	background: #563d6d;
+	display: inline-flex;
+}
+
 #levels ul{
 	padding: 0;
 	display: inline-flex;
@@ -69,17 +76,19 @@ body{
 }
 
 .page-content{
-  max-width: 1400px;
-  width: 80%;
-  min-width: 960px;
-  margin: 0 auto;
-  border-radius: 40px;
-  background: #fff;
-  margin-top: 50px;
+	max-width: 1400px;
+	width: 80%;
+	min-width: 960px;
+	margin: 0 auto;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+	background: #fff;
+	margin-top: 50px;
+	border: solid #cfcfcf 1px;
 }
 
 #blocklyDiv {
-  height: 600px; 
+  height: 672px; 
   flex: 1;
   
 }
@@ -89,13 +98,16 @@ body{
 }
 
 #showGame {
-  position: relative;
-  min-width: 600px;
-  border: 1px solid gray;
-  background: #ccc;
-  background-size: cover;
-  background-repeat: no-repeat
+	position: relative;
+	min-width: 600px;
+	border: 1px solid gray;
+	background: #ccc;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 600px;
+	border: none;
 }
+
 #herro {
   position: absolute;
   width: 85px;
@@ -124,31 +136,48 @@ body{
   z-index: 1;
 }
 
-#start {
+#start, .ready {
 	padding: 10px 20px;
-	background:#e1a053;
+	background:#E1A053;
 	border: none;
 	margin-left: 10px;
 	color: #fff;
    	display: inline-flex !important;
     align-items: center;
-
 }
 
+#start:hover, .ready:hover {
+	background:#DF8F2F;
+}
+
+#reset{
+	background: #7D599C;
+	border: none;
+	color: #fff;
+	margin-left: 16px;
+}
+
+#reset:hover{
+	background: #623589;
+}
+
+
 .blocklyTreeRow{
-	/*font-weight: 500;
-	font-size: 16px;
-	line-height: 91%;*/
 	padding: 16px 21px;
 	height: 48px; 
 	background: #e1e4ff;
 	cursor: pointer;
-
 }
 
-#reset {
-  padding: 10px 20px;
+.blocklyTreeRow:not(.blocklyTreeSelected):hover{
+	background: #C9CEFF !important;
 }
+
+.blocklyTreeSelected{
+	background: #6C4E91 !important;
+}
+
+
 
 /* Стили для модальных окон */
 .overlay {
@@ -181,6 +210,8 @@ body{
    border-radius: 3px;
    background-color: #fff;
    transition: 0.3s all;
+   border: 6px solid #52449B;
+   border-radius: 40px;
 }
 
 .modal .content{font-size: 19px;}
@@ -204,18 +235,18 @@ body{
 }
 
 .modal__cross:hover {
-  fill: #005b7f;
+	fill: #005b7f;
 }
-/*.btn:hover, button.ready:hover {
-  background-color: #0b8fc3;
+
+.btn:hover, a.show-hint:hover {
+	background-color: #E1E4FF;
+}
+
+/*.btn:active, a.show-hint:active {
+    background: #E1E4FF;
 }*/
 
-a.show-hint:hover {
-  background-color: #34ab2fb5;
-}
-
-.btn, button.ready{
-   padding: 10px;
+.btn, .ready{
    text-decoration: none;
    margin: 10px 0;
    color: #fff;
@@ -228,9 +259,13 @@ a.show-hint:hover {
    background-color: #005b7f;
 }
 
+.btn{
+	padding: 16px 32px !important;
+}
 
 
-.btn, #score{
+
+.btn, #score, .ready{
   background-color: #fff;
   border-radius: 50px;
   margin-right: 20px;
@@ -253,8 +288,9 @@ a.show-hint{
 
 
 button.ready {
-  float: right;
-  margin-top: 40px;
+  color: #fff;
+  background: #E1A053;
+  margin-top: 30px;
 }
 
 div#score, #curlevel{

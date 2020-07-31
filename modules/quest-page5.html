@@ -18,7 +18,7 @@
 	<div class="page-content">
 		<div class="top-panel">
 			<div class="line-block">
-		  		<input type="hidden" id='curLevel' value='3'> <!-- Текущий уровень -->
+		  		<input type="hidden" id='curLevel' value='4'> <!-- Текущий уровень -->
 		  		<a href="#" class="js-open-modal show-mission btn" data-modal="1">Миссия</a>
 		  		<a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка &nbsp;<img src="../images/genic.png" alt="">&nbsp; -1</a>
 		  	</div>
@@ -27,8 +27,8 @@
 			  	<ul>
 			  		<li><a href="#">1</a></li>
 			  		<li><a href="#">2</a></li>
-			  		<li class="active"><a href="#">3</a></li>
-			  		<li><a href="#">4</a></li>
+			  		<li><a href="#">3</a></li>
+			  		<li class="active"><a href="#">4</a></li>
 			  		<li><a href="#">5</a></li>
 			  		<li><a href="#">6</a></li>
 			  		<li><a href="#">7</a></li>
@@ -38,7 +38,7 @@
 		  	</div>
 
 		  	<div id="score" class="line-block">
-			  	<div class="value">5</div>
+			  	<div class="value">9</div>
 			  	<img src="../images/genic.png">
 			</div>
 
@@ -94,11 +94,13 @@
 	      <block type="while_not_goal"></block>
 	      <block type="if_direction_free"></block>
 	      <block type="if_direction_free_else"></block>
+	      <block type="while_x"></block>
+	      <block type="while_y"></block>
 	    </category>
 	    
 	  </xml>
 	</div>
 
-  <script src="scripts/script3.js"></script>
+  <script src="scripts/script5.js"></script>
 </body>
 </html>

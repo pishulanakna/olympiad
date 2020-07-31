@@ -38,7 +38,7 @@
 		  	</div>
 
 		  	<div id="score" class="line-block">
-			  	<div class="value">6</div>
+			  	<div class="value">9</div>
 			  	<img src="../images/genic.png">
 			</div>
 
@@ -46,14 +46,12 @@
 
 
 		</div>
-
+		<!-- до прохождения -->
 	  <div class="modal" data-modal="1">
-	   <!--   Svg иконка для закрытия окна  -->
-	    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
 	    <div class="content"></div>
 	  </div>
 
-	<!-- Пока я делаю отдельные окна. Если они так и останутся одинаковыми, то имеет смысл сделать только 1 шаблон -->
+	<!-- подсказка -->
 	  <div class="modal" data-modal="2">
 	   <!--   Svg иконка для закрытия окна  -->
 	    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
@@ -67,12 +65,20 @@
 	  <div class="container">
 	  <!--Это див, в котором будет панель инструментов-->
 	    <div id="blocklyDiv"></div>
-		
-	    <div id="showGame">
-	      <div id="herro"></div>
-	      <div id="exit"></div>
-	      <button id="start" class="btn"><img src="../images/play.png" alt="">&nbsp;Старт</button>
+
+	    <div class="rightSide">
+	    	<div class="tool-pannel">
+	    		<button id="start" class="btn"><img src="../images/play.png" alt="">&nbsp;Старт</button>
+	    		<button id="reset" class="btn">Вернуть персонажа</button>
+	    	</div>
+
+	    	<div id="showGame">
+	    	    <div id="herro"></div>
+				<div id="exit"></div>   
+		    </div>
 	    </div>
+		
+	    
 	  </div>
 
 	  <!--Создаём панель инструментов-->

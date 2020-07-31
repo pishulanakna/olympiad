@@ -16,25 +16,42 @@
 </head>
 <body>
 	<div class="page-content">
-	  <input type="hidden" id='curLevel' value='0'> <!-- Текущий уровень -->
+		<div class="top-panel">
+			<div class="line-block">
+		  		<input type="hidden" id='curLevel' value='0'> <!-- Текущий уровень -->
+		  		<a href="#" class="js-open-modal show-mission btn" data-modal="1">Миссия</a>
+		  		<a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка &nbsp;<img src="../images/genic.png" alt="">&nbsp; -1</a>
+		  	</div>
 
-	  <div id="score">
-	  	<div class="value">0</div>
-	  	<img src="../images/coin.png">
-	  </div>
-	  <div id="curlevel">1/10</div>
+		  	<div id="levels" class="line-block">
+			  	<ul>
+			  		<li class="active"><a href="#">1</a></li>
+			  		<li><a href="#">2</a></li>
+			  		<li><a href="#">3</a></li>
+			  		<li><a href="#">4</a></li>
+			  		<li><a href="#">5</a></li>
+			  		<li><a href="#">6</a></li>
+			  		<li><a href="#">7</a></li>
+			  		<li><a href="#">8</a></li>
+			  		<li><a href="#">9</a></li>
+			  	</ul>
+		  	</div>
 
-	  <a href="#" class="js-open-modal show-mission btn" data-modal="1">Посмотреть миссию</a>
-	  <a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка</a>
-	  
+		  	<div id="score" class="line-block">
+			  	<div class="value">0</div>
+			  	<img src="../images/genic.png">
+			</div>
 
+		  
+
+
+		</div>
+		<!-- до прохождения -->
 	  <div class="modal" data-modal="1">
-	   <!--   Svg иконка для закрытия окна  -->
-	    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
 	    <div class="content"></div>
 	  </div>
 
-	<!-- Пока я делаю отдельные окна. Если они так и останутся одинаковыми, то имеет смысл сделать только 1 шаблон -->
+	<!-- подсказка -->
 	  <div class="modal" data-modal="2">
 	   <!--   Svg иконка для закрытия окна  -->
 	    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
@@ -49,13 +66,20 @@
 	  <!--Это див, в котором будет панель инструментов-->
 	    <div id="blocklyDiv"></div>
 
-	    <div id="showGame">
-	      <div id="herro"></div>
-	      <div id="exit"></div>
+	    <div class="rightSide">
+	    	<div class="tool-pannel">
+	    		<button id="start" class="btn"><img src="../images/play.png" alt="">&nbsp;Старт</button>
+	    		<button id="reset" class="btn">Вернуть персонажа</button>
+	    	</div>
+
+	    	<div id="showGame">
+	    	    <div id="herro"></div>
+				<div id="exit"></div>   
+		    </div>
 	    </div>
+		
+	    
 	  </div>
-	  <button id="start" class="btn">Старт</button>
-	  <button id="reset" class="btn">Вернуть персонажа</button>
 
 	  <!--Создаём панель инструментов-->
 	  <xml id="toolbox" style="display: none">
