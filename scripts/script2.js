@@ -76,6 +76,10 @@ class Herro {
   };
   //Сброс параметров
   reset() {
+    //очищаем все таймауты, чтоб герой не продолжал двигаться
+    this.timeOuts.forEach(function(element){
+      clearTimeout(element);
+    });  
     this.funcDelay = 500;
     console.log(this.startPosition[1]);
     this.x = this.startPosition[0];

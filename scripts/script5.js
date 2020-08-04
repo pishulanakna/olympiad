@@ -7,7 +7,7 @@ class Herro {
 
   constructor() {
     // текущий уровень
-    this.level=3;
+    this.level=4;
 
     //текущий счет
     this.score=6;
@@ -28,51 +28,32 @@ class Herro {
     // массив со значениями точки финиша
     this.finishPosition=[11,2];
 
-    // массив с координатами лабиринта
-    //я генерирую массив ниже в функции
-    // this.tracks = [
-    //     {begin : [0,13], leng: 1, direct: 0},
-    //     {begin : [1,13], leng: 1, direct: 1},
-    //     {begin : [1,10], leng: 3, direct: 0},
-    //     {begin : [1,5], leng: 4, direct: 0},
-    //     {begin : [4,7], leng: 8, direct: 1},
-    //     {begin : [4,0], leng: 3, direct: 0},
-    //     {begin : [4,7], leng: 4, direct: 0},
-    //     {begin : [7,11], leng: 8, direct: 1},
-    //     {begin : [7,11], leng: 7, direct: 0},
-    //     {begin : [9,12], leng: 2, direct: 1},
-    //     {begin : [13,11], leng: 10, direct: 1},
-    //     {begin : [11,8], leng: 3, direct: 0},
-    //     {begin : [11,2], leng: 3, direct: 0}
-
-    // ];
-
-  
+     
 
     // Наша карта 1-стена, 0-дорога
     this.map = [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
     ];
 
     function createTrack(array){
     	let res=[];
     	for(let i=0; i<array.length; i++){
     		for(let j=0; j<array.length; j++){
-    			if(array[i][j]==0){
+    			if(array[i][j]==1){
     				res.push({begin : [j,i], leng: 1, direct: 0});
     			}
     		}
@@ -102,6 +83,10 @@ class Herro {
   };
   //Сброс параметров
   reset() {
+    //очищаем все таймауты, чтоб герой не продолжал двигаться
+    this.timeOuts.forEach(function(element){
+      clearTimeout(element);
+    });  
     this.funcDelay = 500;
     this.x = this.startPosition[0];
     this.y = this.startPosition[1];
@@ -116,18 +101,17 @@ class Herro {
     // this.h.style.opacity = 1;
     if (this.map[myY][myX] == 0) { //проверяю наличие дороги по карте
       this.h.style.left = myX * this.delta + "px";
-      this.h.style.top = myY * this.delta + 0.5*this.delta + "px";
+      this.h.style.top = myY * this.delta  + "px";
       //Проверяем, не достиг ли герой цели
      if (myX == this.finishPosition[0] &&  myY== this.finishPosition[1]) {
        // this.h.style.opacity = 0;
        // this.newLevel();
        this.changeScore('add', 3);
-       this.isGoal(); //не работает
      }
 
     } else {
       //останавливаем все таймауты, чтобы остановить следующие шаги героя
-      console.log(this.timeOuts);
+      // console.log(this.timeOuts);
       this.timeOuts.forEach(function(element){
         clearTimeout(element);
       });  
@@ -263,17 +247,24 @@ class Herro {
     levelTracks.forEach(elem => {
       const track = document.createElement("div");
       track.classList.add("track");
+      let rndValue=0;
       if (elem.direct == 0) {
-        track.style.height = this.delta/5 + "px";
-        track.style.width = this.delta/5 * elem.leng + "px";
+        track.style.height = this.delta + "px";
+        track.style.width = this.delta + "px";
         track.style.left = this.delta * elem.begin[0] + "px";
-        track.style.top = this.delta * elem.begin[1]+20 + "px";
-      } else {
-        track.style.width = this.delta/5 + "px";
-        track.style.height = this.delta/5 * elem.leng + "px";
-        track.style.left = this.delta * elem.begin[0] + "px";
-        track.style.top = this.delta * elem.begin[1] - this.delta * elem.leng + this.delta + "px";
+        track.style.top = this.delta * elem.begin[1] + "px";
+        track.style.padding = "0px";
+        track.style.background = "url('../images/asteroid.png')";
+        rndValue=Math.floor(Math.random() * Math.floor(180));
+        track.style.transform = 'rotate(' + rndValue + 'deg)';
       }
+      // не актуально для карт, где генерируем автоматом лабиринт
+      // } else {
+      //   track.style.width = this.delta + "px";
+      //   track.style.height = this.delta * elem.leng + "px";
+      //   track.style.left = this.delta * elem.begin[0] + "px";
+      //   track.style.top = this.delta * elem.begin[1] - this.delta * elem.leng + this.delta + "px";
+      // }
       document.querySelector("#showGame").append(track);
     })
     
@@ -292,13 +283,11 @@ class Herro {
     document.querySelector('#herro').style.background= "url("+ this.heroImageName+") no-repeat";
 
     document.querySelector('#herro').style.left = this.startPosition[0] * this.delta + "px";
-    document.querySelector('#herro').style.top = this.startPosition[1] * this.delta + this.delta*0.5 + "px";
+    document.querySelector('#herro').style.top = this.startPosition[1] * this.delta + "px";
 
     document.querySelector('#exit').style.background= "url("+ this.finishImageName+") no-repeat";
-    document.querySelector('#exit').style.width='38px';
-    document.querySelector('#exit').style.height='38px';
     document.querySelector('#exit').style.left = this.finishPosition[0] * this.delta + "px";
-    document.querySelector('#exit').style.top = this.finishPosition[1] * this.delta+ this.delta*0.5 + "px";
+    document.querySelector('#exit').style.top = this.finishPosition[1] * this.delta + "px";
   };
 
 

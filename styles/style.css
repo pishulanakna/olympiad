@@ -212,6 +212,7 @@ body{
    transition: 0.3s all;
    border: 6px solid #52449B;
    border-radius: 40px;
+   transition: 0.5s;
 }
 
 .modal .content{font-size: 19px;}
@@ -221,6 +222,8 @@ body{
 .overlay.active{
    opacity: 1;
    visibility: visible;
+   transition: 0.5s;
+   transition-delay: 0.2s;
 }
 
 .modal__cross {

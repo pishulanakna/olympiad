@@ -102,8 +102,12 @@ class Herro {
   };
   //Сброс параметров
   reset() {
+    //очищаем все таймауты, чтоб герой не продолжал двигаться
+    this.timeOuts.forEach(function(element){
+      clearTimeout(element);
+    });  
+    document.querySelector("#start").disabled = false;
     this.funcDelay = 500;
-    console.log(this.startPosition[1]);
     this.x = this.startPosition[0];
     this.y = this.startPosition[1];
     this.timeOuts = [];
@@ -123,12 +127,11 @@ class Herro {
        // this.h.style.opacity = 0;
        // this.newLevel();
        this.changeScore('add', 3);
-       this.isGoal(); //не работает
-     }
+       //this.isGoal(); //Она не должна тут вызываться. isGoal вызывается скриптами самих блоков
+     } 
 
     } else {
       //останавливаем все таймауты, чтобы остановить следующие шаги героя
-      console.log(this.timeOuts);
       this.timeOuts.forEach(function(element){
         clearTimeout(element);
       });  
