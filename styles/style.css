@@ -5,6 +5,20 @@
 	font-style: normal;
 }
 
+@font-face{
+	font-family: 'FuturaNew';
+	src: url('../fonts/FuturaNewBook-Reg.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'FuturaNew';
+	src: url('../fonts/FuturaNewBold-Reg.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+
 
 * {
   box-sizing: border-box;
@@ -14,6 +28,7 @@
 body{
 	background: url('../images/fon.jpg') no-repeat;
 	background-size: cover;
+	min-height: 100vh;
 }
 
 .container {
@@ -349,3 +364,167 @@ div#score div.sub{
   opacity: 0 !important;
   transform: scale(1)!important;
 }
+
+
+/*Последняя страница с результатами*/
+.lastPageTitle{
+	text-align: center;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 22px;
+	color: #252331;
+	display: flex !important;
+    align-items: center;
+    padding: 16px 32px !important;
+    background-color: #fff;
+    border-radius: 50px;
+    margin-right: 20px;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.lastPagetop-panel{
+	justify-content: center;
+}
+
+.laspPagepage-content{
+	border-radius: 40px;
+	width: 100%;
+
+}
+
+#lastPageLeftPannel{
+	min-width: 480px;
+	background: #E4E7FF;
+	height: 600px;
+	position: relative;
+	padding: 40px;
+	border-bottom-left-radius: 40px;
+}
+
+#lastPageLeftPannel .results{
+	margin: 16px 0;
+}
+
+#lastPageRightPannel{
+	background: url(../images/lastpage_fon.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+    width: 100%;
+    border-bottom-right-radius: 40px;
+    padding: 40px;
+}
+
+.results .left{
+	float: left;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	color: #000;
+	margin-bottom: 16px;
+}
+
+.results .right{
+	float: right;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	color: #2D247E;
+	margin-bottom: 16px;
+}
+
+#lastPageRightPannel .title, #lastPageLeftPannel .title{
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 22px;
+	letter-spacing: 0.015em;
+	color: #7C7C7C;
+	text-transform: uppercase;
+}
+
+#lastPageRightPannel .title{
+	color: #fff;
+}
+
+.ad{
+	font-weight: 500 !important;
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 0.015em;
+	color: #2D247E !important;
+	margin-top: 8px;
+}
+
+#lastPageRightPannel .wrapper{
+	margin-top: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	/*justify-content: space-between;*/
+}
+
+
+#lastPageRightPannel .box{
+	background: #FFFFFF;
+	border: 1px solid #9B51E0;
+	border-radius: 28px;
+	padding: 32px;
+	max-width: 450px;
+	text-align: center;
+	font-family: FuturaNew;
+	position: relative;
+	margin-right: 16px;
+	margin-bottom: 32px;
+}
+
+#lastPageRightPannel .box .logo{
+	position: absolute;
+	top: 0px;
+	left: 17px;
+}
+
+.specialText{
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	color: rgba(0, 0, 0, 0.39);
+	margin-bottom: 8px;
+}
+
+.usualText{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #3B558C;
+	margin-bottom: 16px;
+}
+
+.usualText:last-child{
+	margin-bottom: 0;
+}
+
+.boxTitle{
+	font-weight: bold; 
+	font-size: 24px; 
+	line-height: 30px; 
+	margin-bottom: 16px;
+}
+
+.box:last-child .boxTitle{
+	text-transform: uppercase;
+	font-size: 18px;
+	line-height: 117.1%;
+	letter-spacing: 0.035em;
+	color: #3B558C;
+	margin-top: 16px;
+}
+
+.box:last-child{
+	width: 290px;
+	margin-right: 16px;
+}
+
+
+

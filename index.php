@@ -22,6 +22,9 @@
   		case '5':
   			require "modules/quest-page5.html";
   			break;
+  		case '9':
+  			require "modules/finish.html";
+  			break;
   		
   		default:
   			require "modules/lending-page.html";
