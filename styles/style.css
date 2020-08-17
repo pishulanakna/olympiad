@@ -492,83 +492,18 @@ div#score div.sub{
 	margin-top: 16px;
 	display: flex;
 	flex-wrap: wrap;
-	/*justify-content: space-between;*/
+	overflow: hidden;
 }
 
-
 #lastPageRightPannel .box{
-	/*width: 100%;*/
-	/*text-align: center;*/
 	font-family: FuturaNew;
-	/*background: url('../images/sertificate.png');*/
 	position: relative;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	
 }
 
-#lastPageRightPannel .box img{
-	/*width: 100%;
-	height: auto;
-	position: relative;*/
-}
 
 .hidden{
 	display: none;
 }
-
-/*canvas{
-	width: 100% !important;
-	height: 300px !important
-}*/
-
-/*#lastPageRightPannel .box .logo{
-	position: absolute;
-	top: 0px;
-	left: 17px;
-}
-
-.specialText{
-	font-weight: normal;
-	font-size: 16px;
-	line-height: 19px;
-	color: rgba(0, 0, 0, 0.39);
-	margin-bottom: 8px;
-}
-
-.usualText{
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 22px;
-	text-align: center;
-	color: #3B558C;
-	margin-bottom: 16px;
-}
-
-.usualText:last-child{
-	margin-bottom: 0;
-}
-
-.boxTitle{
-	font-weight: bold; 
-	font-size: 24px; 
-	line-height: 30px; 
-	margin-bottom: 16px;
-}
-
-.box:last-child .boxTitle{
-	text-transform: uppercase;
-	font-size: 18px;
-	line-height: 117.1%;
-	letter-spacing: 0.035em;
-	color: #3B558C;
-	margin-top: 16px;
-}*/
-
-/*.box:last-child{
-	width: 290px;
-	margin-right: 16px;
-}*/
-
-
-
