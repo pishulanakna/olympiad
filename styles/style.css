@@ -19,6 +19,11 @@
 	font-style: normal;
 }
 
+@font-face {
+    font-family: 'Caveat';
+    src: url('../fonts/Caveat-Regular.ttf');
+}
+
 
 * {
   box-sizing: border-box;
@@ -30,6 +35,7 @@ body{
 	background-size: cover;
 	min-height: 100vh;
 }
+
 
 .container {
   display: flex;
@@ -256,7 +262,7 @@ body{
 	fill: #005b7f;
 }
 
-.btn:hover, a.show-hint:hover {
+.btn:hover, a.show-hint:hover, #btnSave:hover {
 	background-color: #E1E4FF;
 }
 
@@ -304,6 +310,12 @@ a.show-hint{
 	align-items: center;
 }
 
+button{
+	border: none;
+	cursor: pointer;
+	outline: none;
+	transition: 0.7s;
+}
 
 button.ready {
   color: #fff;
@@ -387,16 +399,16 @@ div#score div.sub{
 	justify-content: center;
 }
 
-.laspPagepage-content{
+.lastPagepage-content{
 	border-radius: 40px;
-	width: 100%;
+/*	width: 100%;*/
 
 }
 
 #lastPageLeftPannel{
 	min-width: 480px;
 	background: #E4E7FF;
-	height: 600px;
+/*	height: 600px;*/
 	position: relative;
 	padding: 40px;
 	border-bottom-left-radius: 40px;
@@ -411,11 +423,30 @@ div#score div.sub{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	height: 600px;
+	overflow: auto;
     width: 100%;
     border-bottom-right-radius: 40px;
     padding: 40px;
 }
+
+#lastPageRightPannel .row{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.saveInPDF{
+	padding: 12px 16px;
+	background: #fff;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #3A4652;
+	border-radius: 27px;
+}
+
+
 
 .results .left{
 	float: left;
@@ -466,19 +497,32 @@ div#score div.sub{
 
 
 #lastPageRightPannel .box{
-	background: #FFFFFF;
-	border: 1px solid #9B51E0;
-	border-radius: 28px;
-	padding: 32px;
-	max-width: 450px;
-	text-align: center;
+	/*width: 100%;*/
+	/*text-align: center;*/
 	font-family: FuturaNew;
+	/*background: url('../images/sertificate.png');*/
 	position: relative;
-	margin-right: 16px;
-	margin-bottom: 32px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	
 }
 
-#lastPageRightPannel .box .logo{
+#lastPageRightPannel .box img{
+	/*width: 100%;
+	height: auto;
+	position: relative;*/
+}
+
+.hidden{
+	display: none;
+}
+
+/*canvas{
+	width: 100% !important;
+	height: 300px !important
+}*/
+
+/*#lastPageRightPannel .box .logo{
 	position: absolute;
 	top: 0px;
 	left: 17px;
@@ -519,12 +563,12 @@ div#score div.sub{
 	letter-spacing: 0.035em;
 	color: #3B558C;
 	margin-top: 16px;
-}
+}*/
 
-.box:last-child{
+/*.box:last-child{
 	width: 290px;
 	margin-right: 16px;
-}
+}*/
 
 
 

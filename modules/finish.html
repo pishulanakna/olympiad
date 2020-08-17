@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
   <script src="scripts/modal.js"></script>
 </head>
 <body>
-	<div class="page-content laspPagepage-content">
+	<div class="page-content lastPagepage-content">
 		<div class="top-panel lastPagetop-panel">
 			<div class="line-block">
 		  		<span class="lastPageTitle"><img src="../images/student.png" alt="">&nbsp;Никита Пищуленок</span>
@@ -45,29 +45,67 @@
 		</div>
 
 		<div id="lastPageRightPannel">
-			<span class="title">Призы</span>
-			<div class="wrapper">
-				<div class="box">
-					<div class="boxTitle">Сертификат</div>
-					<div class="specialText">Кому</div>
-					<div class="usualText">Пищуленку Никите</div>
-					<div class="specialText">За что</div>
-					<div class="usualText">За успешное прохождение онлайн-олимпиады по программированию</div>
-					<div class="logo"><img src="../images/brain.png" alt=""></div>
-				</div>
-				<div class="box">
-					<img src="../images/gift.png" alt="">
-					<div class="boxTitle">Бесплатное занятие в айтигенио</div>
-				</div>
+			<div class="row">
+				<span class="title">Призы</span>
+        <!-- Кнопка ниже скрывается в css. Удалять ее нельзя -->
+        <button id='btnDisplay' class='hidden'>Display</button> 
+				<button id='btnSave' class="saveInPDF">Скачать в pdf</button>
 			</div>
-		</div>
-		
-	    
+			
+			<div class="wrapper">
+				
+					<div class="box">
+            <img id="image1" src="../images/sertificate.png" style="display:none;"/>
+            <canvas id='myCanvas' width="790" height="490">
+					</div>
+				</canvas>
+				<img src="" alt="" id='imgConverted' class='hidden'>
+				
+			</div>
+		</div>	    
 	  </div>
-
-	  
 	</div>
+	
 
-  <!-- <script src="scripts/script5.js"></script> -->
+  <script>
+  	const btnSave=document.querySelector('#btnDisplay');
+  	const btnDwd=document.querySelector('#btnSave');
+  	const canvas = document.getElementById('myCanvas');
+    var img=document.getElementById("image1");
+  	const imgConverted = document.getElementById('imgConverted');
+    const ctx = canvas.getContext('2d');
+    // ctx.scale(0.5,0.5);
+    ctx.drawImage(img,0,20);
+
+    ctx.font='56px Caveat';
+    ctx.fillStyle='#534875';
+    ctx.textAlign="center"; 
+    ctx.fillText("Никита Пищуленок", 395, 290);  
+
+
+
+  
+  	btnSave.addEventListener('click', function(){
+
+  		const dataURI=canvas.toDataURL("image/png");
+  		imgConverted.src=dataURI;
+  	});
+
+  	btnDwd.addEventListener('click', function(){
+      btnSave.click();
+  		if(window.navigator.msSaveBlob){
+  			window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png');
+  		}
+  		else{
+  			const a=document.createElement("a");
+  			document.body.appendChild(a);
+  			a.href=canvas.toDataURL();
+  			a.download="canvas-image.png";
+  			a.click();
+  			document.body.removeChild(a);
+  		}
+  		
+  	});
+  </script>
 </body>
 </html>
