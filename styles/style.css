@@ -7,17 +7,16 @@
 
 @font-face{
 	font-family: 'FuturaNew';
-	src: url('../fonts/FuturaNewBook-Reg.ttf');
-	font-weight: normal;
-	font-style: normal;
+	src: url('../fonts/FuturaNewExtraBold-Reg.ttf');
+	font-weight: bold;
 }
 
 @font-face{
 	font-family: 'FuturaNew';
-	src: url('../fonts/FuturaNewBold-Reg.ttf');
-	font-weight: bold;
-	font-style: normal;
+	src: url('../fonts/FuturaNewLight-Reg.ttf');
+	font-weight: normal;
 }
+
 
 @font-face {
     font-family: 'Caveat';
@@ -270,7 +269,7 @@ body{
     background: #E1E4FF;
 }*/
 
-.btn, .ready{
+.btn, .ready, button, input[type=submit]{
    text-decoration: none;
    margin: 10px 0;
    color: #fff;
@@ -506,4 +505,103 @@ div#score div.sub{
 
 .hidden{
 	display: none;
+}
+
+
+/*Форма регистрации*/
+form#reg{
+	position: absolute;
+	width: 779px;
+	background: #FFFFFF;
+	border-radius: 40px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	padding: 48px 165px 60px 165px;
+
+}
+
+form#reg span.head{
+	font-family: FuturaNew;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 61px;
+	color: #534875;
+	text-align: center;
+	display: block;
+	padding-bottom: 8px;
+}
+
+div.group{
+	margin-top: 24px;
+}
+
+div.group span.title{
+	font-family: FuturaNew;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 117.1%;
+	letter-spacing: 0.035em;
+	color: #838389;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	display: block;
+}
+
+form#reg input, form#reg select{
+	box-sizing: border-box;
+	width: 448px;
+	height: 46px;
+	background: #FFFFFF;
+	border: 2px solid rgba(83, 72, 117, 0.6);
+	border-radius: 38px;
+	outline: none;
+}
+
+/*select{
+	cursor: pointer;
+}*/
+
+form#reg input{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#sendForm{
+	font-family: FuturaNew;
+	padding: 8px 87px;
+	background: #FFDC40 !important;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 30px;
+	color: #323557;
+	box-shadow: -2px 4px 0px #DB994B, 2px 4px 0px #DB994B;
+	border-radius: 42px;
+	margin-top: 32px;
+	cursor: pointer;
+	border: none !important;
+}
+
+#sendForm:hover{
+	background: #F0CE34 !important;
+}
+
+div.leftWing{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 70vh;
+	transform: translate(0, -50%);
+	background: url('../images/image 116.png') no-repeat;
+	width: 50%;
+	background-size: contain;
+}
+
+.btnBack{
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 17px;
 }

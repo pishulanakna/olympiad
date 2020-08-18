@@ -3,6 +3,9 @@
   
   if (isset($_GET['play'])) {
   	switch ($_GET['play']) {
+      case '0':
+        require "modules/registration.html";
+        break;
   		case '1':
   			require "modules/quest-page.html";
   			break;
