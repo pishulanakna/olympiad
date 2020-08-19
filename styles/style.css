@@ -504,7 +504,7 @@ div#score div.sub{
 
 
 .hidden{
-	display: none;
+	display: none !important;
 }
 
 
@@ -583,7 +583,7 @@ form#reg input{
 	border: none !important;
 }
 
-#sendForm:hover{
+#sendForm:hover, #startOlimp:hover{
 	background: #F0CE34 !important;
 }
 
@@ -604,4 +604,102 @@ div.leftWing{
 	top: 50%;
 	transform: translate(0, -50%);
 	font-size: 17px;
+}
+
+/*Конец формы*/
+
+/*Экран после регистрации*/
+.w800{
+	max-width: 1200px;
+	width: 80%;
+	margin: 50px auto; 
+	border: 1px solid #FFFFFF;
+}
+
+.half{
+	background: #E4E7FF;
+	width: 50%;
+	min-height: 600px;
+	padding: 32px 40px;
+}
+
+.half:first-child{
+	border-bottom-left-radius: 40px;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 0.015em;
+	color: #5D4588;
+}
+
+.half:last-child{
+	border-bottom-right-radius: 40px;
+}
+
+.half .photo{
+	margin-top: 40px;
+}
+
+.half .box{
+	display: flex;
+	flex-direction: column;
+	padding: 48px 32px;
+	background: #5D4588;
+	border-radius: 20px;
+	color: #fff;
+}
+
+.half .box .title{
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 22px;
+	text-align: center;
+	letter-spacing: 0.015em;
+	color: rgba(255, 255, 255, 0.49);
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.half .box .rules{
+	display: inline-flex;
+	margin: 8px 0;
+}
+
+.rules .icon{
+	margin-right: 16px;
+}
+
+.rules ul{
+	margin: 0;
+	padding-left: 0;
+}
+
+ul li{
+	margin-top: 8px;
+	list-style: none;
+}
+
+#startOlimp{
+	margin-top: 48px;
+	background: #FFDC40;
+	box-shadow: -2px 4px 0px #DB994B, 2px 4px 0px #DB994B;
+	border-radius: 42px;
+	padding: 8px 69px;
+	font-family: FuturaNew;
+	color: #323557;
+	font-weight: 450;
+	font-size: 24px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.olimpBtn{
+	position: relative;
+}
+
+#startOlimp + .photo{
+	position: absolute;
+	top: 30px;
+	left: 200px;
+
 }
