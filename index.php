@@ -3,6 +3,9 @@
   
   if (isset($_GET['play'])) {
   	switch ($_GET['play']) {
+       case '-3':
+        require "modules/regcompleted.html";
+        break;
       case '-2':
         require "modules/afterReg2.html";
         break;

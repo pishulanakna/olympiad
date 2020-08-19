@@ -509,7 +509,7 @@ div#score div.sub{
 
 
 /*Форма регистрации*/
-form#reg{
+#reg{
 	position: absolute;
 	width: 779px;
 	background: #FFFFFF;
@@ -521,7 +521,7 @@ form#reg{
 
 }
 
-form#reg span.head{
+#reg span.head{
 	font-family: FuturaNew;
 	font-style: normal;
 	font-weight: bold;
@@ -531,6 +531,11 @@ form#reg span.head{
 	text-align: center;
 	display: block;
 	padding-bottom: 8px;
+}
+
+div#reg div.group{
+	width: 70%;
+    margin: 0 auto;
 }
 
 div.group{
@@ -549,7 +554,7 @@ div.group span.title{
 	display: block;
 }
 
-form#reg input, form#reg select{
+#reg input, #reg select{
 	box-sizing: border-box;
 	width: 448px;
 	height: 46px;
@@ -563,7 +568,16 @@ form#reg input, form#reg select{
 	cursor: pointer;
 }*/
 
-form#reg input{
+div#reg{
+	text-align: center;
+	padding: 48px;
+}
+
+div#reg img{
+	margin: 48px 0;
+}
+
+#reg input{
 	padding-left: 20px;
 	padding-right: 20px;
 }
