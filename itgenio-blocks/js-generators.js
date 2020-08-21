@@ -174,7 +174,7 @@ Blockly.JavaScript['if_part_weight'] = function(block) {
   var value_detail_2 = Blockly.JavaScript.valueToCode(block, 'detail_2', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_condition_body = Blockly.JavaScript.statementToCode(block, 'condition_body');
   var code = `
-  if ${value_detail_1} ${dropdown_condition} ${value_detail_2} {
+  if (${value_detail_1} ${dropdown_condition} ${value_detail_2}) {
     ${statements_condition_body}
   }
   ;\n`;
@@ -187,15 +187,26 @@ Blockly.JavaScript['in_a_backpack'] = function(block) {
 };
 
 Blockly.JavaScript['on_the_floor'] = function(block) {
-  var code = 'gameHerro.map[gameHerro.y, gameHerro.x]';
+  var code = 'gameHerro.map[gameHerro.y][gameHerro.x]';
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['replace_the_part'] = function(block) {
   var code = `
   var d = gameHerro.inBackpack;
-  gameHerro.inBackpack = gameHerro.map[gameHerro.y, gameHerro.x];
-  gameHerro.map[gameHerro.y, gameHerro.x] = d
+  gameHerro.inBackpack = gameHerro.map[gameHerro.y][gameHerro.x];
+  gameHerro.map[gameHerro.y][gameHerro.x] = d
+  ;\n`;
+  return code;
+};
+
+Blockly.JavaScript['for_loop'] = function(block) {
+  var text_i = block.getFieldValue('i');
+  var statements_loop_body = Blockly.JavaScript.statementToCode(block, 'loop_body');
+  var code = `
+  for (var i = 0; i < ${text_i}; i++) {
+    ${statements_loop_body}
+  }
   ;\n`;
   return code;
 };

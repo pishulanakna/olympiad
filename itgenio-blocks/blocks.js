@@ -331,3 +331,19 @@ Blockly.Blocks['replace_the_part'] = {
   }
 };
 
+//цикл for
+Blockly.Blocks['for_loop'] = {
+  init: function() {
+    this.appendStatementInput("loop_body")
+        .setCheck(null)
+        .appendField("повторить")
+        .appendField(new Blockly.FieldTextInput("0"), "i")
+        .appendField("раз");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+

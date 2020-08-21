@@ -232,7 +232,10 @@ class Herro {
   	// console.log('овый уровень');
     // this.h.style.opacity = 1;
 
-    (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 
+    if(this.isShowedHint==-1){
+      document.getElementById('hint').style.display='none'; 
+    }
+    
     if (this.level<10){
       this.level++;
     }

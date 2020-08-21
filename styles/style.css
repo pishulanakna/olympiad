@@ -156,6 +156,7 @@ body{
   z-index: 1;
 }
 
+
 #start, .ready {
 	padding: 10px 20px;
 	background:#E1A053;
@@ -257,17 +258,26 @@ body{
    transition: 0.7s;
 }
 
+#hint{
+	text-decoration: none;
+	margin: 10px 0;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 22px;
+	cursor: pointer;
+	outline: none;
+	transition: 0.7s;
+	background-color: #005b7f;
+}
+
 .modal__cross:hover {
 	fill: #005b7f;
 }
 
-.btn:hover, a.show-hint:hover, #btnSave:hover {
+.btn:hover, a.show-hint:hover, #btnSave:hover, #hint:hover {
 	background-color: #E1E4FF;
 }
 
-/*.btn:active, a.show-hint:active {
-    background: #E1E4FF;
-}*/
 
 .btn, .ready, button, input[type=submit]{
    text-decoration: none;
@@ -282,13 +292,13 @@ body{
    background-color: #005b7f;
 }
 
-.btn{
+.btn, #hint{
 	padding: 16px 32px !important;
 }
 
 
 
-.btn, #score, .ready{
+.btn, #score, .ready, #hint{
   background-color: #fff;
   border-radius: 50px;
   margin-right: 20px;
@@ -300,12 +310,15 @@ body{
   line-height: 22px;
   text-align: center;
   height: 50px;
+}
 
+#hint{
+	margin-left: 16px;
 }
 
 a.show-hint{
 	margin-left: 20px;
-	display: inline-flex !important;
+	display: inline-flex;
 	align-items: center;
 }
 
@@ -347,6 +360,8 @@ div#score{
 	color: #cfcfcf;
 }
 
+.line-block{display: flex; align-items: center;}
+
 
 div#score div.scoreAnim{
   transform: scale(15);
@@ -374,6 +389,28 @@ div#score div.sub{
   transition: 1s;
   opacity: 0 !important;
   transform: scale(1)!important;
+}
+
+/*Финальный уровень*/
+div.backpack{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 60px;
+	height: 60px;
+	background: url('../images/back.png') no-repeat;
+	background-size: contain;
+	background-position: center center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#weightOfDetail{
+	font-size: 23px;
+	color: #f00;
+	font-weight: 600;
+	opacity: 1;
 }
 
 

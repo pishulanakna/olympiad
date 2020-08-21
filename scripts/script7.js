@@ -43,25 +43,25 @@ class Herro {
       [0, 14, 9, 8, 7, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+      [0, 0, 2, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+      [0, 44, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 44, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 3, 0, 11, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
       [0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
       [0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1],
       [0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1]
     ];
 
     function createTrack(array){
-    	let res=[];
-    	for(let i=0; i<array.length; i++){
-    		for(let j=0; j<array.length; j++){
-    			if(array[i][j]>1){
-    				res.push({begin : [j,i], leng: 1, direct: 0});
-    			}
-    		}
-    	}
-    	return res;
+      let res=[];
+      for(let i=0; i<array.length; i++){
+        for(let j=0; j<array.length; j++){
+          if(array[i][j]>1){
+            res.push({begin : [j,i], leng: 1, direct: 0});
+          }
+        }
+      }
+      return res;
     }
     this.tracks=createTrack(this.map);
     // console.log(a);
@@ -92,18 +92,20 @@ class Herro {
     this.x = this.startPosition[0];
     this.y = this.startPosition[1];
     this.timeOuts = [];
-    this.show(this.x, this.y);
+    this.show(this.x, this.y, this.inBackpack);
 
   }
   //Метод для перестановки персонажа в позицию, 
   //соответствующую его координатам
-  show(myX,myY) {
+  show(myX,myY,myBackpack) {
+
 
     // this.h.style.opacity = 1;
-    if (this.map[myY][myX] == 0) { //проверяю наличие дороги по карте
+    if (this.map[myY][myX] != 1) { //проверяю наличие дороги по карте
       this.h.style.left = myX * this.delta + "px";
       this.h.style.top = myY * this.delta  + "px";
-      console.log(this.inBackpack);
+      console.log(myBackpack);
+      document.getElementById('weightOfDetail').innerHTML=myBackpack;
       //Проверяем, не достиг ли герой цели
      if (myX == this.finishPosition[0] &&  myY== this.finishPosition[1]) {
        // this.h.style.opacity = 0;
@@ -127,35 +129,35 @@ class Herro {
   
     switch(op){
       case 'add':
-      	elem=document.createElement('div');
-      	elem.className = "scoreAnim add";
-      	elem.innerHTML = "+3";
-      	document.getElementById('score').append(elem);
-      	
-      	window.setTimeout(function() {
+        elem=document.createElement('div');
+        elem.className = "scoreAnim add";
+        elem.innerHTML = "+3";
+        document.getElementById('score').append(elem);
+        
+        window.setTimeout(function() {
             elem.classList.add("showBonus")
         }, 100)
 
 
-      	this.score+=val;
-      	elem.classList.remove("showBonus");
-      	setTimeout(() => elem.remove(), 2000);
+        this.score+=val;
+        elem.classList.remove("showBonus");
+        setTimeout(() => elem.remove(), 2000);
         break;
       
       case 'sub':
         elem=document.createElement('div');
-      	elem.className = "scoreAnim sub";
-      	elem.innerHTML = "-1";
-      	document.getElementById('score').append(elem);
-      	
-      	window.setTimeout(function() {
+        elem.className = "scoreAnim sub";
+        elem.innerHTML = "-1";
+        document.getElementById('score').append(elem);
+        
+        window.setTimeout(function() {
             elem.classList.add("showBonus")
         }, 100)
 
 
-      	this.score-=val;
-      	elem.classList.remove("showBonus");
-      	setTimeout(() => elem.remove(), 2000);
+        this.score-=val;
+        elem.classList.remove("showBonus");
+        setTimeout(() => elem.remove(), 2000);
         break;
         break;
     }
@@ -167,36 +169,36 @@ class Herro {
   //Методы для перемещения персонажа
   goRight() {
     this.x++;
-    const thisX = this.x, thisY = this.y;
+    const thisX = this.x, thisY = this.y, thisBackpack = this.inBackpack;
     let timeout = setTimeout(() => {
-      this.show(thisX, thisY);
+      this.show(thisX, thisY, thisBackpack);
     }, this.funcDelay);
     this.timeOuts.push(timeout);
     this.funcDelay += this.delay;
   }
   goLeft() {
     this.x--;
-    const thisX = this.x, thisY = this.y;
+    const thisX = this.x, thisY = this.y, thisBackpack = this.inBackpack;
     let timeout = setTimeout(() => {
-      this.show(thisX, thisY);
+      this.show(thisX, thisY, thisBackpack);
     }, this.funcDelay);
     this.timeOuts.push(timeout);
     this.funcDelay += this.delay;
   }
   goUp() {
     this.y--;
-    const thisX = this.x, thisY = this.y;
+    const thisX = this.x, thisY = this.y, thisBackpack = this.inBackpack;
     let timeout = setTimeout(() => {
-      this.show(thisX, thisY);
+      this.show(thisX, thisY, thisBackpack);
     }, this.funcDelay);
     this.timeOuts.push(timeout);
     this.funcDelay += this.delay;
   }
   goDown() {
     this.y++;
-    const thisX = this.x, thisY = this.y;
+    const thisX = this.x, thisY = this.y, thisBackpack = this.inBackpack;
     let timeout = setTimeout(() => {
-      this.show(thisX, thisY);
+      this.show(thisX, thisY, thisBackpack);
     }, this.funcDelay);
     this.timeOuts.push(timeout);
     this.funcDelay += this.delay;
@@ -236,7 +238,7 @@ class Herro {
 
   // Определяем какой сейчас уровень и делаем подготовку для следующего
   newLevel=()=>{
-  	// console.log('овый уровень');
+    // console.log('овый уровень');
     // this.h.style.opacity = 1;
 
     (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 

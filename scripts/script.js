@@ -219,8 +219,7 @@ class Herro {
   newLevel=()=>{
   	// console.log('овый уровень');
     // this.h.style.opacity = 1;
-
-    (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 
+    (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='flex'; 
     if (this.level<10){
       this.level++;
     }

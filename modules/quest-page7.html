@@ -20,7 +20,7 @@
 			<div class="line-block">
 		  		<input type="hidden" id='curLevel' value='6'> <!-- Текущий уровень -->
 		  		<a href="#" class="js-open-modal show-mission btn" data-modal="1">Миссия</a>
-		  		<a href="#" class="js-open-modal show-hint btn" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка &nbsp;<img src="../images/genic.png" alt="">&nbsp; -1</a>
+		  		<a href="#" class="js-open-modal show-hint" id='hint' data-modal="2" title="Подсказка стоит 1 геник!">Подсказка &nbsp;<img src="../images/genic.png" alt="">&nbsp; -1</a>
 		  	</div>
 
 		  	<div id="levels" class="line-block">
@@ -72,9 +72,15 @@
 	    		<button id="reset" class="btn">Вернуть персонажа</button>
 	    	</div>
 
+	    	
+
 	    	<div id="showGame">
 	    	    <div id="herro"></div>
-				<div id="exit"></div>   
+				<div id="exit"></div> 
+				
+				<div class="backpack">
+	    			<span id="weightOfDetail">0</span>
+	    		</div>  
 		    </div>
 	    </div>
 		

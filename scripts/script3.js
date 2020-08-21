@@ -229,10 +229,11 @@ class Herro {
 
   // Определяем какой сейчас уровень и делаем подготовку для следующего
   newLevel=()=>{
-  	// console.log('овый уровень');
-    // this.h.style.opacity = 1;
+    
+    if(this.isShowedHint==-1){
+      document.getElementById('hint').style.display='none'; 
+    }    
 
-    (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 
     if (this.level<10){
       this.level++;
     }
