@@ -219,7 +219,7 @@ class Herro {
 
   isGoal() {
     if (this.x == this.finishPosition[0] &&  this.y== this.finishPosition[1]) {
-      console.log('Completed');
+      // console.log('Completed');
       return true;
 
     } else {

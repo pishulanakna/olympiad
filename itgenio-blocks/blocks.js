@@ -296,7 +296,7 @@ Blockly.Blocks['in_a_backpack'] = {
     this.appendDummyInput()
         .appendField("вес детали");
     this.appendDummyInput()
-        .appendField("в рюкзаке");
+        .appendField("в памяти");
     this.setOutput(true, null);
     this.setColour(210);
  this.setTooltip("");
@@ -308,9 +308,9 @@ Blockly.Blocks['in_a_backpack'] = {
 Blockly.Blocks['on_the_floor'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("вес детали");
+        .appendField("вес");
     this.appendDummyInput()
-        .appendField("под ногами");
+        .appendField("новой детали");
     this.setOutput(true, null);
     this.setColour(210);
  this.setTooltip("");
@@ -322,7 +322,7 @@ Blockly.Blocks['on_the_floor'] = {
 Blockly.Blocks['replace_the_part'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Заменить деталь в рюкзаке");
+        .appendField("Запомнить вес новой детали");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(220);
