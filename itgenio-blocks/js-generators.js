@@ -167,3 +167,35 @@ Blockly.JavaScript['while_y'] = function(block) {
 
   return code;
 };
+
+Blockly.JavaScript['if_part_weight'] = function(block) {
+  var value_detail_1 = Blockly.JavaScript.valueToCode(block, 'detail_1', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_condition = block.getFieldValue('condition');
+  var value_detail_2 = Blockly.JavaScript.valueToCode(block, 'detail_2', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_condition_body = Blockly.JavaScript.statementToCode(block, 'condition_body');
+  var code = `
+  if ${value_detail_1} ${dropdown_condition} ${value_detail_2} {
+    ${statements_condition_body}
+  }
+  ;\n`;
+  return code;
+};
+
+Blockly.JavaScript['in_a_backpack'] = function(block) {
+  var code = 'gameHerro.inBackpack';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['on_the_floor'] = function(block) {
+  var code = 'gameHerro.map[gameHerro.y, gameHerro.x]';
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['replace_the_part'] = function(block) {
+  var code = `
+  var d = gameHerro.inBackpack;
+  gameHerro.inBackpack = gameHerro.map[gameHerro.y, gameHerro.x];
+  gameHerro.map[gameHerro.y, gameHerro.x] = d
+  ;\n`;
+  return code;
+};

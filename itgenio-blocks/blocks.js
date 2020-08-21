@@ -265,3 +265,69 @@ Blockly.Blocks['while_y'] = {
  this.setHelpUrl("");
   }
 };
+
+//Блок для сравнивания веса деталей
+Blockly.Blocks['if_part_weight'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Если");
+    this.appendValueInput("detail_1")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["больше",">"], ["меньше","<"]]), "condition");
+    this.appendValueInput("detail_2")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField(", то");
+    this.appendStatementInput("condition_body")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(195);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//Блок Деталь в рюкзаке
+Blockly.Blocks['in_a_backpack'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("вес детали");
+    this.appendDummyInput()
+        .appendField("в рюкзаке");
+    this.setOutput(true, null);
+    this.setColour(210);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//Блок Деталь под ногами
+Blockly.Blocks['on_the_floor'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("вес детали");
+    this.appendDummyInput()
+        .appendField("под ногами");
+    this.setOutput(true, null);
+    this.setColour(210);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+//Блок Заменить деталь
+Blockly.Blocks['replace_the_part'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Заменить деталь в рюкзаке");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(220);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
