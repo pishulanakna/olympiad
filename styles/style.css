@@ -392,13 +392,30 @@ div#score div.sub{
 }
 
 /*Финальный уровень*/
-div.backpack{
+div.resultBox{
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	left: 40%;
+	bottom: 140px;
 	width: 60px;
 	height: 60px;
+}
+
+.backpack{
+	position: relative;
+	height: 100%;
+	width: 100%;
 	background: url('../images/back.png') no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
+.thotBlock{
+	position: absolute;
+	left: 55%;
+	top: -80%;
+	width: 90px;
+	height: 90px;
+	background: url('../images/okno.png') no-repeat;
 	background-size: contain;
 	background-position: center center;
 	display: flex;
@@ -411,6 +428,16 @@ div.backpack{
 	color: #f00;
 	font-weight: 600;
 	opacity: 1;
+}
+
+.detail{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	margin: 8px;
+	z-index: 1;
+	background-size: contain;
+	background-position: center center;
 }
 
 

@@ -219,7 +219,7 @@ class Herro {
 
   isGoal() {
     if (this.x == this.finishPosition[0] &&  this.y== this.finishPosition[1]) {
-      // console.log('Completed');
+      console.log('Completed');
       return true;
 
     } else {
@@ -232,10 +232,7 @@ class Herro {
   	// console.log('овый уровень');
     // this.h.style.opacity = 1;
 
-    if(this.isShowedHint==-1){
-      document.getElementById('hint').style.display='none'; 
-    }
-    
+    (this.isShowedHint==-1) ? document.getElementById('hint').style.display='none' : document.getElementById('hint').style.display='block'; 
     if (this.level<10){
       this.level++;
     }

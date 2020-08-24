@@ -10,36 +10,31 @@
 <body>
   <div class="leftWing"></div>
   <a href="#" class="btn btnBack" >Вернуться на сайт</a>
-  <form action="" method="" id="reg">
+  <form action="/" method="post" id="reg">
     <span class="head">Принять участие</span>
     <div class="group">
       <span class="title">Имя и фамилия участника</span>
-      <input type="text" name='' placeholder="Константин Константинопольский">
+      <input type="text" name='name' placeholder="Константин Константинопольский">
     </div>
 
     <div class="group">
       <span class="title">Возраст</span>
-      <input type="number" min='6' max="17" step="1" name='' placeholder="Сколько лет участнику?" onkeydown="this.value = this.value.replace(/[^0-9\.]/g, '');">
+      <input type="number" min='6' max="17" step="1" name='age' placeholder="Сколько лет участнику?" onkeydown="this.value = this.value.replace(/[^0-9\.]/g, '');">
     </div>
 
     <div class="group">
       <span class="title">Имя и фамилиия родителя</span>
-      <input type="text" name='' placeholder="Как зовут родителя?">
-    </div>
-
-    <div class="group">
-      <span class="title">Имя и фамилиия родителя</span>
-      <input type="text" name='' placeholder="Как зовут родителя?">
+      <input type="text" name='parent' placeholder="Как зовут родителя?">
     </div>
 
     <div class="group">
       <span class="title">Телефон родителя</span>
-      <input type="text" name='' placeholder="80291112333">
+      <input type="text" name='phone' placeholder="80291112333">
     </div>
 
      <div class="group">
       <span class="title">Email родителя</span>
-      <input type="text" name='' placeholder="myMail@gmail.com">
+      <input type="text" name='email' placeholder="myMail@gmail.com">
     </div>
 
     <input type="submit" value="Принять участие бесплатно" id="sendForm">

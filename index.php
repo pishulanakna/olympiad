@@ -1,19 +1,12 @@
 <?php
-  session_start();
-  
-  if (isset($_GET['play'])) {
+	session_start();
+	
+	if (isset($_POST['name'])) {
+		require 'DBConn/reg.php';
+	} else if (isset($_GET['play'])) {
   	switch ($_GET['play']) {
-       case '-3':
-        require "modules/regcompleted.html";
-        break;
       case '-2':
         require "modules/afterReg2.html";
-        break;
-       case '-1':
-        require "modules/afterReg.html";
-        break;
-      case '0':
-        require "modules/registration.html";
         break;
   		case '1':
   			require "modules/quest-page.html";
@@ -42,15 +35,18 @@
   		case '9':
   			require "modules/finish.html";
   			break;
-  		
-  		default:
-  			require "modules/lending-page.html";
-  			break;
   	}
-
-   
-  } 
-  else {
-    require "modules/lending-page.html";
-  }
+	} 
+	else if (isset($_GET['reg']))
+	{
+		require 'modules/regcompleted.php';
+	}
+	else if (isset($_GET['u']))
+	{
+	    require "modules/afterReg.php";
+	}
+	else
+	{
+    require 'modules/registration.html';
+	}
 ?>

@@ -28,6 +28,20 @@ class Herro {
     // массив со значениями точки финиша
     this.finishPosition=[11,10];
 
+    // Позиции деталей
+    this.details=[
+      {name : 'detail1', position: [2,7]},
+      {name : 'detail2', position: [2,6]},
+      {name : 'detail3', position: [2,2]},
+      {name : 'detail4', position: [4,2]},
+      {name : 'detail5', position: [7,4]},
+      {name : 'detail6', position: [9,6]},
+      {name : 'detail7', position: [9,10]}
+    ];
+
+    // Вес самой тяжелой детали
+    this.maxweight=13;
+
     // Вес детали
     this.inBackpack=0;
 
@@ -45,22 +59,27 @@ class Herro {
     this.map = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+      [1, 1, 2, 0, 13, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
-      [1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1],
+      [1, 1, 0, 1, 1, 1, 1, 2, 0, 0, 1, 1, 1],
+      [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+      [1, 1, 7, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1],
+      [1, 1, 3, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
       [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
       [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-      [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-      [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-      [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-      [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
+      [1, 0, 0, 1, 1, 1, 1, 1, 1, 8, 0, 0, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
+
+
     this.isShowedHint=0; //Была ли подсказка уже показана. 1-да, 0 нет, -1 подсказки нет на уровне
 
     this.delta = Math.floor(document.querySelector("#showGame").offsetWidth / this.map.length);
+
+    this.putDetails(this.details, this.delta);
+
    // this.delta = 55; //шаг персонажа в пикселях
     this.delay = 500; //задержка в мс между шагами персонажа
     this.funcDelay = 500 //ожидание до выполнения очередной функции 
@@ -71,15 +90,28 @@ class Herro {
     this.timeOuts = []; //здесь будем хранить таймауты для каждого отображения героя
 
     this.h = document.querySelector("#herro"); //Наш персонаж
-    // this.h.style.width='45px';
-    // this.h.style.height='45px';
   };
+
+  putDetails(array, delta){
+      for(let i=0; i<array.length; i++){
+        var elem=document.createElement('div');
+        elem.className='detail';
+        elem.style.left = array[i]['position'][0] * this.delta + "px";
+        elem.style.top = array[i]['position'][1] * this.delta + "px";
+        elem.style.backgroundImage = "url(../images/details/"+ array[i]['name'] +".png)";
+
+        document.getElementById('showGame').appendChild(elem);
+      }
+    }
+  
   //Сброс параметров
   reset() {
     //очищаем все таймауты, чтоб герой не продолжал двигаться
     this.timeOuts.forEach(function(element){
       clearTimeout(element);
     });  
+    document.querySelectorAll('#score div.value')[0].innerHTML=this.score;
+    this.inBackpack=0;
     this.funcDelay = 500;
     this.x = this.startPosition[0];
     this.y = this.startPosition[1];
@@ -96,13 +128,14 @@ class Herro {
     if (this.map[myY][myX] != 1) { //проверяю наличие дороги по карте
       this.h.style.left = myX * this.delta + "px";
       this.h.style.top = myY * this.delta  + "px";
-      console.log(myBackpack);
       document.getElementById('weightOfDetail').innerHTML=myBackpack;
       //Проверяем, не достиг ли герой цели
      if (myX == this.finishPosition[0] &&  myY== this.finishPosition[1]) {
-       // this.h.style.opacity = 0;
-       // this.newLevel();
-       this.changeScore('add', 3);
+       // Проверяю нашел ли максимальный вес детали
+       if(myBackpack==this.maxweight){
+         this.changeScore('add', 3);
+       }
+       
      }
 
     } else {
@@ -199,22 +232,24 @@ class Herro {
   //функция, определяющая, свободен ли путь в заданном направлении
   isFree(dir) {
     const x = this.x, y = this.y;
-    let wall;
+    let free = true;
+    let place;
     switch(dir) {
       case "right":
-        wall = this.map[y][x+1];
+        place = this.map[y][x+1];
         break;
       case "left":
-        wall = this.map[y][x-1];
+        place = this.map[y][x-1];
         break;
       case "top":
-        wall = this.map[y-1][x];
+        place = this.map[y-1][x];
         break;
       case "down":
-        wall = this.map[y+1][x];
+        place = this.map[y+1][x];
         break;
     }
-    return !wall;
+    if (place === 1) free = false;
+    return free;
   };
 
   //определяет, совпадают ли текущие координаты с целью 
