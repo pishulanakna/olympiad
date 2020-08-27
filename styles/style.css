@@ -33,6 +33,7 @@ body{
 	background: url('../images/fon.jpg') no-repeat;
 	background-size: cover;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 
@@ -394,8 +395,8 @@ div#score div.sub{
 /*Финальный уровень*/
 div.resultBox{
 	position: absolute;
-	left: 40%;
-	bottom: 140px;
+	left: 15%;
+    bottom: 175px;
 	width: 60px;
 	height: 60px;
 }
@@ -618,6 +619,11 @@ div.group span.title{
 	display: block;
 }
 
+input, select{
+	outline: none;
+}
+
+
 #reg input, #reg select{
 	box-sizing: border-box;
 	width: 448px;
@@ -625,7 +631,6 @@ div.group span.title{
 	background: #FFFFFF;
 	border: 2px solid rgba(83, 72, 117, 0.6);
 	border-radius: 38px;
-	outline: none;
 }
 
 /*select{
@@ -709,6 +714,15 @@ div.leftWing{
 	letter-spacing: 0.015em;
 	color: #5D4588;
 }
+
+
+canvas#firework {display:block}
+div.word{ margin: 12px auto 25px auto; background: url('../images/word.jpg') no-repeat; width: 365px; height: 40px; background-position: center; }
+input#finalAnswer{ transition: 1s all; width: 280px;height: 46px; border: 4px solid #E1A053; font-size: 18px; border-radius: 38px; padding: 10px 26px;}
+button#sendAnswer{width: 280px; margin-top: 20px;}
+.error{transition: 1s all; color: #f00; font-size: 14px; height: 18px; display: block; opacity: 1;}
+#congratulation{transition: 1s all; z-index: 99; max-width: 100vw; font-size: 0px; opacity: 0;  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 600; color: #fff; }
+#myCanvas{background: #f00; background: url('../images/sertificate.png') no-repeat; background-size: contain;}
 
 .half:last-child{
 	border-bottom-right-radius: 40px;

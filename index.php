@@ -28,9 +28,13 @@
   			require "modules/quest-page5.html";
   			break;
 
-      case '7':
-        require "modules/quest-page7.html";
-        break;
+	      case '7':
+	        require "modules/quest-page7.html";
+	        break;
+
+       	case '8':
+	        require "modules/final.html";
+	        break;
 
   		case '9':
   			require "modules/finish.html";
