@@ -542,6 +542,8 @@ div.resultBox{
 	color: #fff;
 }
 
+#lastPageRightPannel .row{max-width: 785px;}
+
 .ad{
 	font-weight: 500 !important;
 	font-size: 18px;
