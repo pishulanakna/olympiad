@@ -275,7 +275,7 @@ body{
 	fill: #005b7f;
 }
 
-.btn:hover, a.show-hint:hover, #btnSave:hover, #hint:hover {
+.btn:hover, a.show-hint:hover, .saveInPDF:hover, #hint:hover {
 	background-color: #E1E4FF;
 }
 
@@ -508,9 +508,8 @@ div.resultBox{
 	text-align: center;
 	color: #3A4652;
 	border-radius: 27px;
+	text-decoration: none;
 }
-
-
 
 .results .left{
 	float: left;
